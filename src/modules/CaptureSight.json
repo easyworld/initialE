@@ -1,6 +1,6 @@
 {
     "repo":"zaksabeast/CaptureSight",
-    "assetRegex":[".*CaptureSight.*\\.zip"],
+    "assetRegex":["CaptureSight-Applet.zip", "CaptureSight-Overlay.zip"],
     "customSteps":[
         {
             "action": "createDir",
@@ -12,7 +12,11 @@
         },
         {
             "action": "extract",
-            "source": ".*CaptureSight.*\\.zip"
+            "source": "CaptureSight-Overlay.zip"
+        },
+        {
+            "action": "extract",
+            "source": "CaptureSight-Applet.zip"
         },
         {
             "action": "move",
