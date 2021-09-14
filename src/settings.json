@@ -1,12 +1,24 @@
 {
     "version": "3.5.0",
     "packages":{
-        "minimal":{
+        "ca1e":{
             "active": true,
+            "modules": [
+                "atmosphere", "hekate", "sigpatches",
+                "deepseaToolbox", "ldn_mitm", "nx-ovlloader", "Tesla-Menu",
+                "TegraExplorer", "Lockpick_RCM",
+                "emuiibo", "Amiigo", "jksv", "tinwoo", "Awoo-Installer",
+                "nxdumptool", "NX-Shell", "MissionControl",
+                "dbi", "CaptureSight", "breeze", "Zing",
+                "linkalho", "QuickNTP", "SysDVR"
+            ]
+        },
+        "minimal":{
+            "active": false,
             "modules": ["atmosphere", "hekate", "deepseaAssets", "hb-appstore"]
         },
         "normal":{
-            "active": true,
+            "active": false,
             "modules": [
                 "atmosphere", "hekate", "deepseaAssets", "hb-appstore", 
                 "deepseaToolbox", "deepseaCleaner",
@@ -16,7 +28,7 @@
             ]
         },
         "advanced":{
-            "active": true,
+            "active": false,
             "modules": [
                 "atmosphere", "hekate", "deepseaAssets", "hb-appstore", 
                 "deepseaToolbox", "deepseaCleaner",
