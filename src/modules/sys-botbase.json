@@ -1,0 +1,14 @@
+{
+    "repo":"olliz0r/sys-botbase",
+    "assetRegex":["sys-botbase.zip"],
+    "customSteps":[
+        {
+            "action": "extract",
+            "source": "sys-botbase.zip"
+        },
+        {
+            "action": "delete",
+            "source": "atmosphere/contents/430000000000000B/flags/boot2.flag"
+        }
+    ]
+}
