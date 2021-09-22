@@ -1,0 +1,14 @@
+{
+    "repo":"fishguy6564/USB-Botbase",
+    "assetRegex":["usb-botbase.zip"],
+    "customSteps":[
+        {
+            "action": "extract",
+            "source": "usb-botbase.zip"
+        },
+        {
+            "action": "delete",
+            "source": "atmosphere/contents/430000000000000B/flags/boot2.flag"
+        }
+    ]
+}
