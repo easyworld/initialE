@@ -6,7 +6,8 @@
             "modules": [
                 "atmosphere", "hekate", "sigpatches",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
-                "dbi", "jksv"
+                "dbi", "jksv",
+                "assets"
             ]
         },
         "ca1e":{
