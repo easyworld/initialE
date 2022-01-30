@@ -1,0 +1,10 @@
+{
+    "repo":"dezem/AtmoXL-Titel-Installer",
+    "assetRegex":["AtmoXL-Titel-Installer.zip"],
+    "customSteps":[
+        {
+            "action": "extract",
+            "source": ".*AtmoXL-Titel-Installer.*\\.zip"
+        }
+    ]
+}
