@@ -1,0 +1,11 @@
+{
+    "repo":"qhq/DeepSea",
+    # "assetRegex":[".*atmosphere.*\\.zip"],
+    "customSteps":[
+        {
+            "action": "copy",
+            "source": "assets/boot.ini",
+            "destination": "boot.ini"
+        }
+    ]
+}
