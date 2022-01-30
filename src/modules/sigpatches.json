@@ -1,6 +1,6 @@
 {
     "repo":"ITotalJustice/patches",
-    "assetRegex":[".*hekate.*\\.zip"],
+    "assetRegex":[".*[hekate|SigPatches].*\\.zip"],
     "customSteps":[
         {
             "action": "extract",
