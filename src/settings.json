@@ -1,10 +1,11 @@
 {
-    "version": "3.5.0",
+    "version": "13.2.1",
     "packages":{
         "qhq":{
             "active": true,
             "modules": [
                 "atmosphere", "hekate", "sigpatches",
+                "TegraExplorer", "NX-Shell", "Lockpick_RCM",
                 "dbi", "jksv"
             ]
         },
