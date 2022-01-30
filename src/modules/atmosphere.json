@@ -28,13 +28,13 @@
         {
             "action": "replaceText",
             "source": "atmosphere/config/system_settings.ini",
-            "target": "; dmnt_always_save_cheat_toggles = u8!0x1",
+            "target": "; dmnt_always_save_cheat_toggles = u8!0x0",
             "replacement":"dmnt_always_save_cheat_toggles = u8!0x0"
         },
         {
             "action": "replaceText",
             "source": "atmosphere/config/system_settings.ini",
-            "target": "; usb30_force_enabled = u8!0x1",
+            "target": "; usb30_force_enabled = u8!0x0",
             "replacement":"usb30_force_enabled = u8!0x0"
         }
     ]
