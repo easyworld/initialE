@@ -23,9 +23,7 @@
             "action": "replaceText",
             "source": "atmosphere/config/system_settings.ini",
             "target": "; dmnt_cheats_enabled_by_default = u8!0x1",
-            "replacement":"dmnt_cheats_enabled_by_default = u8!0x0",
-            "target": "; dmnt_always_save_cheat_toggles = u8!0x1",
-            "replacement":"dmnt_always_save_cheat_toggles = u8!0x0"
+            "replacement":"dmnt_cheats_enabled_by_default = u8!0x0"
         },
         {
             "action": "replaceText",
