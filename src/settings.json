@@ -1,8 +1,15 @@
 {
     "version": "3.5.0",
     "packages":{
-        "ca1e":{
+        "qhq":{
             "active": true,
+            "modules": [
+                "atmosphere", "hekate", "sigpatches",
+                "dbi", "jksv"
+            ]
+        },
+        "ca1e":{
+            "active": false,
             "modules": [
                 "atmosphere", "hekate", "sigpatches",
                 "deepseaToolbox", "ldn_mitm", "nx-ovlloader", "Tesla-Menu",
