@@ -4,12 +4,12 @@
     "customSteps":[
         {
             "action": "createDir",
-            "source": "switch/jksv"
+            "source": "switch/JKSV"
         },
         {
             "action": "move",
             "source": "JKSV.nro",
-            "destination": "switch/jksv/JKSV.nro"
+            "destination": "switch/JKSV/JKSV.nro"
         }
     ]
 }
