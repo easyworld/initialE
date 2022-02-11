@@ -45,8 +45,12 @@ if __name__ == '__main__':
                                 fs.extract(moduleName, customStep["source"])
 
                             if customStep["action"] == "delete":
-                                print("- custom step: " + customStep["action"] + " -> " + customStep["source"])
-                                fs.delete(moduleName, customStep["source"])
+                                if "fileRegex" in customStep:
+                                    print("- custom step: " + customStep["action"] + " -> " + customStep["fileRegex"])
+                                    fs.delete(moduleName, customStep["source"], customStep["fileRegex"])
+                                else:
+                                    print("- custom step: " + customStep["action"] + " -> " + customStep["source"])
+                                    fs.delete(moduleName, customStep["source"])
 
                             if customStep["action"] == "copy":
                                 if "fileRegex" in customStep:
