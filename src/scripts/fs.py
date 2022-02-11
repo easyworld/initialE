@@ -54,11 +54,9 @@ class FS():
                 shutil.rmtree(path, ignore_errors=True)   
         else:
             path = Path(Path.joinpath(self.workdir, modulename, source))
-            print("正则 -> " + regex)
             for filename in os.listdir(path):
                 if re.search(regex, filename):
-                    dfile = str(Path(Path.joinpath(path, regex)))
-                    print("文件 -> " + dfile)
+                    dfile = str(Path(Path.joinpath(path, filename)))
                     if os.path.exists(dfile):
                         os.remove(dfile)
                         
