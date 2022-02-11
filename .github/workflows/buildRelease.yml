@@ -32,11 +32,11 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: | 
+        cp ./assets/boot.ini ./
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
 
     - name: Create Release
       run: |
-        cp ./assets/boot.ini ./
         set -x
         assets=()
         for asset in ./*.zip; do
