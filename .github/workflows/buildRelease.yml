@@ -36,6 +36,7 @@ jobs:
 
     - name: Create Release
       run: |
+        cp ./assets/boot.ini ./
         set -x
         assets=()
         for asset in ./*.zip; do
