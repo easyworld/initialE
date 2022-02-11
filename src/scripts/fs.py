@@ -36,14 +36,29 @@ class FS():
 
     ################### THIS IS WHAT SHOULD BE USED FOR MODULES ###################
 
-    def delete(self, modulename, source):
+    def deleteOLD(self, modulename, source):
         path = Path(Path.joinpath(self.workdir, modulename, source))	
         if not path.is_dir():	
             if os.path.exists(path):	
                 os.remove(path)	
         else:	
-            shutil.rmtree(path, ignore_errors=True)
-    
+            shutil.rmtree(path, ignore_errors=True)    
+            
+    def delete(self, modulename, source, regex=False):
+        if regex == False:
+            path = Path(Path.joinpath(self.workdir, modulename, source))	
+            if not path.is_dir():	
+                if os.path.exists(path):	
+                    os.remove(path)	
+            else:	
+                shutil.rmtree(path, ignore_errors=True)   
+        else:
+            path = Path(Path.joinpath(self.workdir, modulename, source))
+            for filename in os.listdir(path):
+                if re.search(regex, filename):
+                    dfile = str(Path(Path.joinpath(path, regex)))
+                    if os.path.exists(dfile):
+                        os.remove(dfile)
     def copy(self, modulename, source, dest, regex=False):
 
         if regex == False:
