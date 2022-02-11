@@ -55,10 +55,12 @@ class FS():
         else:
             path = Path(Path.joinpath(self.workdir, modulename, source))
             for filename in os.listdir(path):
+                print("文件 -> " + filename)
                 if re.search(regex, filename):
                     dfile = str(Path(Path.joinpath(path, regex)))
                     if os.path.exists(dfile):
                         os.remove(dfile)
+                        
     def copy(self, modulename, source, dest, regex=False):
 
         if regex == False:
