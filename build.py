@@ -78,7 +78,7 @@ if __name__ == '__main__':
             print("输出：" + str(Path(Path.joinpath(Path.cwd()))))
             print("输出：" + str(Path(Path.joinpath(fs.workdir, ""))))
             print("输出：" + outPath)
-            # fs.copy("", str(Path(Path.joinpath(fs.workdir, moduleName))), outPath)
+            fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "boot.ini")), outPath)
             print("Zipping package: " + "deepsea-"+packageName+"_v"+settings["version"])
             shutil.make_archive("deepsea-"+packageName+"_v"+settings["version"],'zip',outPath)
             fs.delete("",outPath)
