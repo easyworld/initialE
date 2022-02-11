@@ -75,7 +75,7 @@ if __name__ == '__main__':
                     # fs.copy("", str(Path(Path.joinpath(fs.workdir, moduleName))), outPath)
                 else:
                     print("module file does not exist")
-            print("输出：" + str(Path(fs.workdir, "")))
+            print("输出：" + str(Path.joinpath(Path.cwd()))
             print("输出：" + str(Path(Path.joinpath(fs.workdir, ""))))
             print("输出：" + outPath)
             # fs.copy("", str(Path(Path.joinpath(fs.workdir, moduleName))), outPath)
