@@ -32,10 +32,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: | 
-        if [ ! -d ./tmp/ ]; then
-          mkdir ./tmp/
-        fi
-        cp ./assets/boot.ini ./tmp/
+        # if [ ! -d ./tmp/ ]; then
+        #   mkdir ./tmp/
+        # fi
+        # cp ./assets/boot.ini ./tmp/
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
 
     - name: Create Release
