@@ -27,6 +27,10 @@
             "source": "",
             "fileRegex": ".*hekate.*\\.bin",
             "destination": "hekate_ctcaer.bin"
+        },
+        {
+            "action": "delete",
+            "source": "hekate_ctcaer_.*\\.bin"
         }
     ]
 }
