@@ -23,14 +23,9 @@
             "destination": "atmosphere/reboot_payload.bin"
         },
         {
-            "action": "copy",
-            "source": "",
-            "fileRegex": ".*hekate.*\\.bin",
+            "action": "move",
+            "source": ".*hekate.*\\.bin",
             "destination": "hekate_ctcaer.bin"
-        },
-        {
-            "action": "delete",
-            "source": "hekate_ctcaer_.*\\.bin"
         }
     ]
 }
