@@ -75,7 +75,8 @@ if __name__ == '__main__':
                     # fs.copy("", str(Path(Path.joinpath(fs.workdir, moduleName))), outPath)
                 else:
                     print("module file does not exist")
-
+            print("输出：" + str(Path(Path.joinpath(fs.workdir, ""))))
+            fs.copy("", str(Path(Path.joinpath(fs.workdir, moduleName))), outPath)
             print("Zipping package: " + "deepsea-"+packageName+"_v"+settings["version"])
             shutil.make_archive("deepsea-"+packageName+"_v"+settings["version"],'zip',outPath)
             fs.delete("",outPath)
