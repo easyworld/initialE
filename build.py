@@ -75,10 +75,8 @@ if __name__ == '__main__':
                     # fs.copy("", str(Path(Path.joinpath(fs.workdir, moduleName))), outPath)
                 else:
                     print("module file does not exist")
-            print("输出：" + str(Path(Path.joinpath(Path.cwd()))))
-            print("输出：" + str(Path(Path.joinpath(fs.workdir, ""))))
-            print("输出：" + outPath)
             fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "boot.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","boot.ini"))))
+            fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "exosphere.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","exosphere.ini"))))
             print("Zipping package: " + "deepsea-"+packageName+"_v"+settings["version"])
             shutil.make_archive("deepsea-"+packageName+"_v"+settings["version"],'zip',outPath)
             fs.delete("",outPath)
