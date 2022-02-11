@@ -44,6 +44,17 @@ class FS():
         else:
             shutil.rmtree(path, ignore_errors=True)
     
+    def deleteREG(self, modulename, source, regex=False):
+        if regex == False:
+            spath = Path(Path.joinpath(self.workdir, modulename, source))
+        else:
+            path = Path(Path.joinpath(self.workdir, modulename, source))
+            for filename in os.listdir(path):
+                if re.search(regex, filename):
+                    dfile = str(Path(Path.joinpath(path, regex)))
+                    if os.path.exists(dfile):
+                        os.remove(dfile)
+    
     def copy(self, modulename, source, dest, regex=False):
 
         if regex == False:
