@@ -30,7 +30,7 @@
         },
         {
             "action": "delete",
-            "source": "hekate_ctcaer_.*\\.bin"
+            "source": "hekate_ctcaer_5.7.0.bin"
         }
     ]
 }
