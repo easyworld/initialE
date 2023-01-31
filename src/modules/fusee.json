@@ -1,0 +1,15 @@
+{
+    "repo":"Atmosphere-NX/Atmosphere",
+    "assetRegex":["fusee.bin"],
+    "customSteps":[
+        {
+            "action": "createDir",
+            "source": "bootloader/payloads"
+        },
+        {
+            "action": "move",
+            "source": "fusee.bin",
+            "destination": "bootloader/payloads/fusee.bin"
+        }
+    ]
+}
