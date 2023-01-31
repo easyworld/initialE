@@ -11,6 +11,8 @@ on:
     branches:
       - master
       - rewrite
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -25,13 +27,16 @@ jobs:
       # ${{ steps.date.outputs.date }}
 
     - name: 获取版本
-      if: github.event.inputs.version != '9.9.9'
       id: set-version
+      if: github.event.inputs.version = '9.9.9'
       run: |
-        # version=$(cat ./VERSION | python -c 'import sys, json; f=open("./src/settings.json");print(json.loads(f.read())["version"])')
+        version=$(cat ./VERSION | python -c 'import sys, json; f=open("./src/settings.json");print(json.loads(f.read())["version"])')
+        echo "version==$version" >> $GITHUB_OUTPUT
+      if: github.event.inputs.version != '9.9.9'
+      run: |
         version=github.event.inputs.version
         echo "version==$version" >> $GITHUB_OUTPUT
-        
+
     - name: 安装 Python
       uses: actions/setup-python@v1
       with:
@@ -48,6 +53,17 @@ jobs:
       run: | 
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
 
+    - name: 发布
+      run: |
+        set -x
+        assets=()
+        for asset in ./*.zip; do
+          assets+=("-a" "$asset")
+        done
+        hub release create "${assets[@]}_${{ steps.date.outputs.date }}" -d -m "Release v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Create GitHub release
       id: create_release
       uses: actions/create-release@v1
@@ -58,6 +74,6 @@ jobs:
         release_name: V-${{ steps.set-version.outputs.version }}
         body: |
           ![release!](https://i.giphy.com/media/lPulaaB9lDMnGZiivs/source.gif)
-          # Changelog
-          Release type: ${{ steps.set-version.outputs.version }}
+          # 更新日志
+          v${{ steps.set-version.outputs.version }}
         prerelease: true
