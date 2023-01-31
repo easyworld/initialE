@@ -49,21 +49,6 @@ jobs:
       run: | 
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
 
-    - name: 创建版本
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ steps.set-version.outputs.version }}
-        release_name: ${{ steps.set-version.outputs.version }}
-        body: |
-          ![release!](https://i.giphy.com/media/lPulaaB9lDMnGZiivs/source.gif)
-          # 更新日志
-          v${{ steps.set-version.outputs.version }}
-        draft: false
-        prerelease: false
-
     - name: 发布
       run: |
         set -x
@@ -72,7 +57,33 @@ jobs:
           assets+=("-a" "$asset")
         done
         echo "file=${assets[@]}" >> $GITHUB_OUTPUT
-        hub release create "${assets[@]}" -d -m "Release v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
+        hub release create "${assets[@]}" -m "Release v${{ steps.set-version.outputs.version }}" "$file" -t "${{ steps.set-version.outputs.version }}"
         echo $file
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create GitHub release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.set-version.outputs.version }}
+        release_name: ${{ steps.set-version.outputs.version }}
+        body: |
+          # 更新日志
+          v${{ steps.set-version.outputs.version }}
+        draft: false
+        prerelease: false
+
+    # 上传到release-asset 用户就可以在release页面下载了
+    - name: Uploading assets...
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # 这里是create_release步骤输出的参数
+        asset_path: ./
+        asset_name: $file
+        asset_content_type: application/gzip
