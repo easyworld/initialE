@@ -20,7 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - name: 启动
+      uses: actions/checkout@v2
 
     - name: 当前日期
       id: date
@@ -31,7 +32,7 @@ jobs:
     - name: 获取版本
       id: set-version
       run: |
-        version=github.event.inputs.version
+        version=${{ github.event.inputs.version }}
         # version=$(cat ./VERSION | python -c 'import sys, json; f=open("./src/settings.json");print(json.loads(f.read())["version"])')
         echo "version==$version" >> $GITHUB_OUTPUT
 
@@ -71,12 +72,12 @@ jobs:
 
     - name: Create GitHub release
       id: create_release
-      uses: actions/create-release@v1
+      uses: "marvinpinto/action-automatic-releases@latest"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: "V-${{ steps.set-version.outputs.version }}"
-        release_name: "V-${{ steps.set-version.outputs.version }}"
+        tag_name: V-${{ steps.set-version.outputs.version }}
+        release_name: V-${{ steps.set-version.outputs.version }}
         body: |
           ![release!](https://i.giphy.com/media/lPulaaB9lDMnGZiivs/source.gif)
           # 更新日志
