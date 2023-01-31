@@ -1,6 +1,6 @@
 {
     "repo":"tomvita/EdiZon-SE",
-    "assetRegex":[".*EdiZon.*\\.nro", ".*ovlEdiZon.*\\.ovl"],
+    "assetRegex":[".*EdiZon.*\\.nro", ".*ovlEdiZon.*\\.ovl", "switch\\EdiZon\\.*EdiZon.*\\.nro"],
     "customSteps":[
         {
             "action": "createDir",
