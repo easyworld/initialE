@@ -2,6 +2,11 @@ name: BuildRelease
 
 on:
   workflow_dispatch:
+    inputs:
+    version:
+      description: '版本'
+      required: false
+      default: '9.9.9'
   push:
     branches:
       - master
@@ -13,35 +18,46 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-      
-    - id: set-version
+
+    - name: 当前日期
+      id: date
+      run: echo "date==$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+      # ${{ steps.date.outputs.date }}
+
+    - name: 获取版本
+      if: github.event.inputs.version != '9.9.9'
+      id: set-version
       run: |
-        version=$(cat ./VERSION | python -c 'import sys, json; f=open("./src/settings.json");print(json.loads(f.read())["version"])')
-        echo "::set-output name=version::$version"
+        # version=$(cat ./VERSION | python -c 'import sys, json; f=open("./src/settings.json");print(json.loads(f.read())["version"])')
+        version=github.event.inputs.version
+        echo "version==$version" >> $GITHUB_OUTPUT
         
-    - name: Set up Python
+    - name: 安装 Python
       uses: actions/setup-python@v1
       with:
         python-version: '3.x'
         architecture: 'x64'
 
-    - name: Install dependencies
+    - name: 安装依赖
       run: |
         if [ -f ./requirements.txt ]; then pip3 install -r ./requirements.txt; fi
         
-    - name: Create DeepSea Packages
+    - name: 打包
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: | 
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
 
-    - name: Create Release
-      run: |
-        set -x
-        assets=()
-        for asset in ./*.zip; do
-          assets+=("-a" "$asset")
-        done
-        hub release create "${assets[@]}" -d -m "Release v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
+    - name: Create GitHub release
+      id: create_release
+      uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: V-${{ steps.set-version.outputs.version }}
+        release_name: V-${{ steps.set-version.outputs.version }}
+        body: |
+          ![release!](https://i.giphy.com/media/lPulaaB9lDMnGZiivs/source.gif)
+          # Changelog
+          Release type: ${{ steps.set-version.outputs.version }}
+        prerelease: true
