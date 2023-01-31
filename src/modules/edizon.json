@@ -1,6 +1,6 @@
 {
     "repo":"tomvita/EdiZon-SE",
-    "assetRegex":[".*EdiZon.*\\.nro", ".*ovlEdiZon.*\\.ovl", "switch\\EdiZon\\.*EdiZon.*\\.nro"],
+    "assetRegex":[".*EdiZon.*\\.nro", ".*ovlEdiZon.*\\.ovl"],
     "customSteps":[
         {
             "action": "createDir",
@@ -12,7 +12,7 @@
         },
         {
             "action": "move",
-            "source": "switch/edizon/EdiZon.nro",
+            "source": "EdiZon.nro",
             "destination": "switch/edizon/EdiZon.nro"
         },
         {
