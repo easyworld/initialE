@@ -16,6 +16,7 @@ on:
 
 jobs:
   build:
+    name: 大气层打包更新
     runs-on: ubuntu-latest
     
     steps:
@@ -25,7 +26,7 @@ jobs:
       id: date
       run: |
         echo "date=$(date +'%YY%mm%dd')" >> $GITHUB_OUTPUT
-        echo ${{ steps.date.outputs.date }}
+        # ${{ steps.date.outputs.date }}
 
     - name: 获取版本
       id: set-version
@@ -50,6 +51,17 @@ jobs:
       run: | 
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
 
+    - name: 发布
+      run: |
+        set -x
+        assets=()
+        for asset in ./*.zip; do
+          assets+=("-a" "$asset")
+        done
+        hub release create "${assets[@]}" -d -m "Release v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Upload Artifact
       if: steps.prepare_release.outputs.apk_path
       uses: actions/upload-artifact@v1
@@ -69,4 +81,6 @@ jobs:
           ![release!](https://i.giphy.com/media/lPulaaB9lDMnGZiivs/source.gif)
           # 更新日志
           v${{ steps.set-version.outputs.version }}
-        prerelease: true
+        prerelease: false
+        files: |
+          ./outputs/atmosphere-v${{ steps.set-version.outputs.version }}_${{ steps.date.outputs.date }}.zip
