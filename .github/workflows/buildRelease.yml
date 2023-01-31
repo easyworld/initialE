@@ -50,13 +50,14 @@ jobs:
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
 
     - name: 发布
+      # hub release create "${assets[@]}" -d -m "Release v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
       run: |
         set -x
         assets=()
         for asset in ./*.zip; do
           assets+=("-a" "$asset")
         done
-        hub release create "${assets[@]}" -m "Release v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}" -t "v${{ steps.set-version.outputs.version }}"
+        hub release create "${assets[@]}" -m "Release v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
         echo $asset
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -84,5 +85,5 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # 这里是create_release步骤输出的参数
         asset_path: ./
-        asset_name: $file
+        asset_name: $asset
         asset_content_type: application/gzip
