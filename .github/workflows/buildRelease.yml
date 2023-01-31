@@ -56,7 +56,7 @@ jobs:
         for asset in ./*.zip; do
           assets+=("-a" "$asset")
         done
-        hub release create "${assets[@]}" -m "Release v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}" -t "${{ steps.set-version.outputs.version }}"
+        hub release create "${assets[@]}" -m "Release v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}" -t "v${{ steps.set-version.outputs.version }}"
         echo $asset
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
