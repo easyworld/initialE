@@ -31,9 +31,6 @@ jobs:
       run: |
         version=$(cat ./VERSION | python -c 'import sys, json; f=open("./src/settings.json");print(json.loads(f.read())["version"])')
         echo "version==$version" >> $GITHUB_OUTPUT
-      if: github.event.inputs.version != '9.9.9'
-        version=github.event.inputs.version
-        echo "version==$version" >> $GITHUB_OUTPUT
 
     - name: 安装 Python
       uses: actions/setup-python@v1
