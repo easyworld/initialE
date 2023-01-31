@@ -75,8 +75,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: V-${{ steps.set-version.outputs.version }}
-        release_name: V-${{ steps.set-version.outputs.version }}
+        tag_name: "V-${{ steps.set-version.outputs.version }}"
+        release_name: "V-${{ steps.set-version.outputs.version }}"
         body: |
           ![release!](https://i.giphy.com/media/lPulaaB9lDMnGZiivs/source.gif)
           # 更新日志
