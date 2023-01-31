@@ -4,7 +4,7 @@
         "qhq":{
             "active": true,
             "modules": [
-                "atmosphere", "hekate", "sigpatches",
+                "atmosphere", "hekate", "sigpatches", "fusee",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
                 "dbi", "jksv"
             ]
