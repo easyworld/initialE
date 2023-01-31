@@ -12,7 +12,7 @@
         },
         {
             "action": "move",
-            "source": "EdiZon.nro",
+            "source": "switch/edizon/EdiZon.nro",
             "destination": "switch/edizon/EdiZon.nro"
         },
         {
