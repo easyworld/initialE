@@ -57,7 +57,7 @@ jobs:
           assets+=("-a" "$asset")
         done
         echo "file=${assets[@]}" >> $GITHUB_OUTPUT
-        hub release create "${assets[@]}" -m "Release v${{ steps.set-version.outputs.version }}" "$file" -t "${{ steps.set-version.outputs.version }}"
+        hub release create "${assets[@]}" -m "Release v${{ steps.set-version.outputs.version }}" "${{ file }}" -t "${{ steps.set-version.outputs.version }}"
         echo $file
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
