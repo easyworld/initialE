@@ -1,3 +1,9 @@
+# Block Nintendo Servers
+127.0.0.1 *nintendo.*
+127.0.0.1 *nintendo-europe.com
+127.0.0.1 *nintendoswitch.*
+95.216.149.205 *conntest.nintendowifi.net
+95.216.149.205 *ctest.cdn.nintendo.net
 # 90DNS
 127.0.0.1 *nintendo.com
 127.0.0.1 *nintendo.net
