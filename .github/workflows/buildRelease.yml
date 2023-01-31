@@ -28,12 +28,10 @@ jobs:
 
     - name: 获取版本
       id: set-version
-      if: github.event.inputs.version = '9.9.9'
       run: |
         version=$(cat ./VERSION | python -c 'import sys, json; f=open("./src/settings.json");print(json.loads(f.read())["version"])')
         echo "version==$version" >> $GITHUB_OUTPUT
       if: github.event.inputs.version != '9.9.9'
-      run: |
         version=github.event.inputs.version
         echo "version==$version" >> $GITHUB_OUTPUT
 
