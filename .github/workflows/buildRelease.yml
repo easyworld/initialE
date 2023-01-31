@@ -3,10 +3,10 @@ name: BuildRelease
 on:
   workflow_dispatch:
     inputs:
-    version:
-      description: '版本'
-      required: false
-      default: '9.9.9'
+      version:
+        description: '版本'
+        required: false
+        default: '9.9.9'
   push:
     branches:
       - master
