@@ -11,8 +11,6 @@ on:
     branches:
       - master
       - rewrite
-    tags:
-      - 'v*'
 
 jobs:
   build:
@@ -33,7 +31,7 @@ jobs:
       run: |
         version=${{ github.event.inputs.version }}
         # version=$(cat ./VERSION | python -c 'import sys, json; f=open("./src/settings.json");print(json.loads(f.read())["version"])')
-        echo "version==$version" >> $GITHUB_OUTPUT
+        echo "version=$version" >> $GITHUB_OUTPUT
 
     - name: 安装 Python
       uses: actions/setup-python@v1
@@ -51,36 +49,30 @@ jobs:
       run: | 
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
 
-    - name: 发布
-      run: |
-        set -x
-        assets=()
-        for asset in ./*.zip; do
-          echo "$asset"
-          assets+=("-a" "$asset")
-        done
-        echo "file=${assets[@]}" >> $GITHUB_OUTPUT
-        hub release create "${assets[@]}" -d -m "Release v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Upload Artifact
-      if: steps.prepare_release.outputs.apk_path
-      uses: actions/upload-artifact@v1
-      with:
-        name: atmosphere-v${{ steps.set-version.outputs.version }}_${{ steps.date.outputs.date }}.zip
-        path: ./$file
-
-    - name: Create GitHub release
+    - name: 创建版本
       id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: V-${{ steps.set-version.outputs.version }}
-        release_name: V-${{ steps.set-version.outputs.version }}
+        tag_name: ${{ steps.set-version.outputs.version }}
+        release_name: ${{ steps.set-version.outputs.version }}
         body: |
           ![release!](https://i.giphy.com/media/lPulaaB9lDMnGZiivs/source.gif)
           # 更新日志
           v${{ steps.set-version.outputs.version }}
+        draft: false
         prerelease: false
+
+    - name: 发布
+      run: |
+        set -x
+        assets=()
+        for asset in ./*.zip; do
+          assets+=("-a" "$asset")
+        done
+        echo "file=${assets[@]}" >> $GITHUB_OUTPUT
+        hub release create "${assets[@]}" -d -m "Release v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
+        echo $file
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
