@@ -1,5 +1,5 @@
 {
-    "repo":"WerWolv/EdiZon",
+    "repo":"tomvita/EdiZon-SE",
     "assetRegex":[".*EdiZon.*\\.nro", ".*ovlEdiZon.*\\.ovl"],
     "customSteps":[
         {
