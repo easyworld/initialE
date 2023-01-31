@@ -5,7 +5,7 @@ on:
     inputs:
       version:
         description: '版本'
-        required: true
+        required: false
         default: '9.9.9'
   push:
     branches:
@@ -29,8 +29,8 @@ jobs:
     - name: 获取版本
       id: set-version
       run: |
-        version=${{ github.event.inputs.version }}
-        # version=$(cat ./VERSION | python -c 'import sys, json; f=open("./src/settings.json");print(json.loads(f.read())["version"])')
+        # version=${{ github.event.inputs.version }}
+        version=$(cat ./VERSION | python -c 'import sys, json; f=open("./src/settings.json");print(json.loads(f.read())["version"])')
         echo "version=$version" >> $GITHUB_OUTPUT
 
     - name: 安装 Python
@@ -85,5 +85,5 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # 这里是create_release步骤输出的参数
         asset_path: ./
-        asset_name: $asset
+        asset_name: DeepSea-${{ steps.set-version.outputs.version }}.zip
         asset_content_type: application/gzip
