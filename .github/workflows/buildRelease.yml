@@ -85,5 +85,5 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # 这里是create_release步骤输出的参数
         asset_path: ./
-        asset_name: DeepSea-${{ steps.set-version.outputs.version }}.zip
+        asset_name: DeepSea-qhq_${{ steps.set-version.outputs.version }}.zip
         asset_content_type: application/gzip
