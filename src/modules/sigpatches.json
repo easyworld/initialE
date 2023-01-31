@@ -1,5 +1,5 @@
 {
-    "repo":"ITotalJustice/patches",
+    "repo":"https://jits.cc/patches",
     "assetRegex":[".*[hekate|SigPatches].*\\.zip"],
     "customSteps":[
         {
