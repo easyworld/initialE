@@ -43,6 +43,9 @@ jobs:
       run: |
         if [ -f ./requirements.txt ]; then pip3 install -r ./requirements.txt; fi
         
+    - name: Download File
+      run: DownloadFile -u https://jits.cc/patches -o Sigpatches.zip
+      
     - name: 打包
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
