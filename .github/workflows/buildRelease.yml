@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    name: 大气层打包更新
+    name: 大气层打包
     runs-on: ubuntu-latest
     
     steps:
@@ -43,10 +43,12 @@ jobs:
       run: |
         if [ -f ./requirements.txt ]; then pip3 install -r ./requirements.txt; fi
 
-    - name: 打包
+    - name: 打包文件
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: | 
+        wget -q https://jits.cc/patches -O sigpatches.zip
+        unzip -u sigpatches.zip
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
         set -x
         assets=()
@@ -58,10 +60,6 @@ jobs:
         # 发布
         # hub release create "${assets[@]}" -m "Atmosphere v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
 
-    - name: 下载
-      run: |
-        wget -q https://jits.cc/patches -O Sigpatches.zip
-        
     - name: 发布
       uses: ncipollo/release-action@v1
       with:
