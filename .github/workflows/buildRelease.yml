@@ -50,7 +50,7 @@ jobs:
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
         set -x
         assets=()
-        for asset in ./*.zip; do
+        for asset in *.zip; do
           assets+=("$asset")
         done 
         filePack=${assets[@]}
@@ -59,7 +59,7 @@ jobs:
         unzip -u sigpatches.zip -d switch_out
         rm ${assets[@]}
         rm sigpatches.zip
-        zip -q -r ${assets[@]} *
+        zip -q -r ${assets[@]} /switch_out
         # filePack='-a ./deepsea-qhq_v1.4.1.zip'
         # 发布
         # hub release create "${assets[@]}" -m "Atmosphere v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
