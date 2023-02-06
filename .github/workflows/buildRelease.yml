@@ -42,16 +42,19 @@ jobs:
     - name: 安装依赖
       run: |
         if [ -f ./requirements.txt ]; then pip3 install -r ./requirements.txt; fi
-        
-    - name: Download File
-      run: |
-        wget –q –P Sigpatches.zip https://jits.cc/patches
-      
+
     - name: 打包
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: | 
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
+        set -x
+        assets=()
+        for asset in ./*.zip; do
+          assets+=("-a" "$asset")
+        done
+        filePack=${assets[@]}
+        echo "filePack=$filePack" >> $GITHUB_OUTPUT
 
     - name: 发布
       run: |
@@ -60,6 +63,17 @@ jobs:
         for asset in ./*.zip; do
           assets+=("-a" "$asset")
         done
-        hub release create "${assets[@]}" -m "Atmosphere v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
+        # hub release create "${assets[@]}" -m "Atmosphere v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create GitHub release
+      uses: marvinpinto/action-automatic-releases@latest
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: v${{ steps.set-version.outputs.version }}
+        title: Atmosphere v${{ steps.set-version.outputs.version }}
+        prerelease: false
+        files: |
+          ./*.zip
+
