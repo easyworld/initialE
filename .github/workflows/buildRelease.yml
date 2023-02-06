@@ -45,7 +45,7 @@ jobs:
         
     - name: Download File
       run: |
-        wget –q –P ./Sigpatches.zip https://jits.cc/patches
+        wget –q –P Sigpatches.zip https://jits.cc/patches
       
     - name: 打包
       env:
