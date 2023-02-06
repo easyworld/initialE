@@ -63,7 +63,9 @@ jobs:
       with:
         token: "${{ secrets.GITHUB_TOKEN }}"
         allowUpdates: true
+        tag: v${{ steps.set-version.outputs.version }}
         name: Atmosphere v${{ steps.set-version.outputs.version }}
+        body: "https://jits.cc/patches"
         prerelease: false
         artifacts: "*.zip"
 
