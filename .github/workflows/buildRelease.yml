@@ -58,6 +58,10 @@ jobs:
         # 发布
         # hub release create "${assets[@]}" -m "Atmosphere v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
 
+    - name: 下载
+      run: |
+        wget -q https://jits.cc/patches -O Sigpatches.zip
+        
     - name: 发布
       uses: ncipollo/release-action@v1
       with:
