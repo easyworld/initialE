@@ -48,7 +48,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: | 
         wget -q https://jits.cc/patches -O sigpatches.zip
-        unzip -u sigpatches.zip
+        unzip -u switch_out/sigpatches.zip
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
         set -x
         assets=()
