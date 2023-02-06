@@ -47,15 +47,19 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: | 
-        wget -q https://jits.cc/patches -O sigpatches.zip
-        unzip -u sigpatches.zip -d switch_out
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
         set -x
         assets=()
         for asset in ./*.zip; do
-          assets+=("-a" "$asset")
+          assets+=("$asset")
         done 
         filePack=${assets[@]}
+        unzip -u ${assets[@]} -d switch_out
+        wget -q https://jits.cc/patches -O sigpatches.zip
+        unzip -u sigpatches.zip -d switch_out
+        rm ${assets[@]}
+        rm sigpatches.zip
+        zip -q -r ${assets[@]} *
         # filePack='-a ./deepsea-qhq_v1.4.1.zip'
         # 发布
         # hub release create "${assets[@]}" -m "Atmosphere v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
