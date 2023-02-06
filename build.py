@@ -81,7 +81,6 @@ if __name__ == '__main__':
                     # fs.copy("", str(Path(Path.joinpath(fs.workdir, moduleName))), outPath)
                 else:
                     print("module file does not exist")
-            print(str(Path(Path.joinpath(Path.cwd(), "assets"))), str(Path(Path.joinpath(fs.workdir, "switch_out"))))
             shutil.copytree(str(Path(Path.joinpath(Path.cwd(), "assets"))), str(Path(Path.joinpath(fs.workdir, "switch_out"))), dirs_exist_ok=True)
             # fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "boot.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","boot.ini"))))
             # fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "exosphere.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","exosphere.ini"))))
