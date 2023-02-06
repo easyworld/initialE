@@ -77,7 +77,7 @@ if __name__ == '__main__':
                         print("Already downloaded: " + module["repo"])
 
                     outPath = str(fs.createDirs("switch_out"))
-                    print(outPath)
+                    # print(outPath)
                     shutil.copytree(str(Path(Path.joinpath(fs.workdir, moduleName))), str(Path(Path.joinpath(fs.workdir, "switch_out"))), dirs_exist_ok=True)
                     # fs.copy("", str(Path(Path.joinpath(fs.workdir, moduleName))), outPath)
                 else:
