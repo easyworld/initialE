@@ -77,6 +77,7 @@ if __name__ == '__main__':
                         print("Already downloaded: " + module["repo"])
 
                     outPath = str(fs.createDirs("switch_out"))
+                    print(outPath)
                     shutil.copytree(str(Path(Path.joinpath(fs.workdir, moduleName))), str(Path(Path.joinpath(fs.workdir, "switch_out"))), dirs_exist_ok=True)
                     # fs.copy("", str(Path(Path.joinpath(fs.workdir, moduleName))), outPath)
                 else:
@@ -84,8 +85,8 @@ if __name__ == '__main__':
             shutil.copytree(str(Path(Path.joinpath(Path.cwd(), "assets"))), str(Path(Path.joinpath(fs.workdir, "switch_out"))), dirs_exist_ok=True)
             # fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "boot.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","boot.ini"))))
             # fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "exosphere.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","exosphere.ini"))))
-            print("Zipping package: " + "deepsea-"+packageName+"_v"+settings["version"])
-            shutil.make_archive("deepsea-"+packageName+"_v"+settings["version"],'zip',outPath)
+            print("Zipping package: " + "atmosphere-"+packageName+"_v"+settings["version"])
+            shutil.make_archive("atmosphere-"+packageName+"_v"+settings["version"],'zip',outPath)
             fs.delete("",outPath)
 
         else:
