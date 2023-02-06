@@ -52,28 +52,18 @@ jobs:
         assets=()
         for asset in ./*.zip; do
           assets+=("-a" "$asset")
-        done
+        done 
         filePack=${assets[@]}
-        echo "filePack=$filePack" >> $GITHUB_OUTPUT
+        # filePack='-a ./deepsea-qhq_v1.4.1.zip'
+        # 发布
+        # hub release create "${assets[@]}" -m "Atmosphere v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
 
     - name: 发布
-      run: |
-        set -x
-        assets=()
-        for asset in ./*.zip; do
-          assets+=("-a" "$asset")
-        done
-        # hub release create "${assets[@]}" -m "Atmosphere v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Create GitHub release
-      uses: marvinpinto/action-automatic-releases@latest
+      uses: ncipollo/release-action@v1
       with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: v${{ steps.set-version.outputs.version }}
-        title: Atmosphere v${{ steps.set-version.outputs.version }}
+        token: "${{ secrets.GITHUB_TOKEN }}"
+        allowUpdates: true
+        name: Atmosphere v${{ steps.set-version.outputs.version }}
         prerelease: false
-        files: |
-          ./*.zip
+        artifacts: "*.zip"
 
