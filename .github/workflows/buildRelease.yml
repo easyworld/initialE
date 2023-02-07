@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: '版本'
-        required: false
-        default: '9.9.9'
+        description: '打包版本'
+        required: true
+        default: ''
   push:
     branches:
       - master
@@ -29,8 +29,8 @@ jobs:
     - name: 获取版本
       id: set-version
       run: |
-        # version=${{ github.event.inputs.version }}
-        version=$(cat ./VERSION | python -c 'import sys, json; f=open("./src/settings.json");print(json.loads(f.read())["version"])')
+        version=${{ github.event.inputs.version }}
+        # version=$(cat ./VERSION | python -c 'import sys, json; f=open("./src/settings.json");print(json.loads(f.read())["version"])')
         echo "version=$version" >> $GITHUB_OUTPUT
 
     - name: 安装 Python
@@ -59,7 +59,7 @@ jobs:
         unzip -u sigpatches.zip -d switch_out
         rm ${assets[@]}
         rm sigpatches.zip
-        zip -q -r ${assets[@]} switch_out
+        zip -q -r "Atmosphere_v${{ steps.set-version.outputs.version }}" switch_out
         # filePack='-a ./deepsea-qhq_v1.4.1.zip'
         # 发布
         # hub release create "${assets[@]}" -m "Atmosphere v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
