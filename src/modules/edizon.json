@@ -9,19 +9,16 @@
         },
         {
             "action": "createDir",
-            "source": "switch/edizon"
+            "source": "switch/Edizon"
+        },
+        {
+            "action": "move",
+            "source": "temp/switch/Edizon/EdiZon.nro",
+            "destination": "switch/Edizon/EdiZon.nro"
         },
         {
             "action": "delete",
-            "source": "atmosphere"
-        },
-        {
-            "action": "delete",
-            "source": "switch/breeze"
-        },
-        {
-            "action": "delete",
-            "source": "switch/EdiZon/profile.zip"
+            "source": "temp"
         }
     ]
 }
