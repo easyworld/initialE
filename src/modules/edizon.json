@@ -11,9 +11,16 @@
             "source": "switch/edizon"
         },
         {
-            "action": "move",
-            "source": "switch/EdiZon/EdiZon.nro",
-            "destination": "switch/edizon/EdiZon.nro"
+            "action": "delete",
+            "source": "atmosphere"
+        },
+        {
+            "action": "delete",
+            "source": "switch/breeze"
+        },
+        {
+            "action": "delete",
+            "source": "switch/EdiZon/profile.zip"
         }
     ]
 }
