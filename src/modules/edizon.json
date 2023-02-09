@@ -9,12 +9,12 @@
         },
         {
             "action": "createDir",
-            "source": "switch/Edizon"
+            "source": "switch/EdiZon"
         },
         {
             "action": "move",
-            "source": "temp/switch/Edizon/EdiZon.nro",
-            "destination": "switch/Edizon/EdiZon.nro"
+            "source": "temp/switch/EdiZon/EdiZon.nro",
+            "destination": "switch/EdiZon/EdiZon.nro"
         },
         {
             "action": "delete",
