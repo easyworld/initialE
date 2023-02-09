@@ -4,6 +4,7 @@
     "customSteps":[
         {
             "action": "extract",
+            "path": "temp",
             "source": ".*EdiZon.*\\.zip"
         },
         {
