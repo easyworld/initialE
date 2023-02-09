@@ -41,8 +41,12 @@ if __name__ == '__main__':
                                 fs.createDir(moduleName, customStep["source"])
                             
                             if customStep["action"] == "extract":
-                                print("- custom step: " + customStep["action"] + " -> " + customStep["source"])
-                                fs.extract(moduleName, customStep["source"])
+                                if "path" in customStep:
+                                    print("- custom step: " + customStep["action"] + " -> " + customStep["source"] + "/" + customStep["path"])
+                                    fs.extract(moduleName, customStep["source"], customStep["path"])
+                                else:
+                                    print("- custom step: " + customStep["action"] + " -> " + customStep["source"])
+                                    fs.extract(moduleName, customStep["source"])
 
                             if customStep["action"] == "delete":
                                 # print("- custom step: " + customStep["action"] + " -> " + customStep["source"])
