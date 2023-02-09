@@ -86,13 +86,14 @@ class FS():
         Path(Path.joinpath(self.workdir, modulename, source)).mkdir(parents=True, exist_ok=True)
 
     def extract(self, modulename, source, dest=""):
-        path = Path(Path.joinpath(self.workdir, modulename, dest))
+        path = Path(Path.joinpath(self.workdir, modulename))
+        dpath = Path(Path.joinpath(self.workdir, modulename, dest))
         for filename in os.listdir(path):
             if re.search(source, filename):
                 assetPath = Path(Path.joinpath(path, filename))
 
                 with zipfile.ZipFile(assetPath, 'r') as zip_ref:
-                    zip_ref.extractall(path)
+                    zip_ref.extractall(dpath)
 
                 self.delete(modulename, assetPath)
                 break
