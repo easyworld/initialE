@@ -13,12 +13,12 @@ class GH():
         try:
             ghRepo = self.github.get_repo(moduleJson["repo"])
         except:
-            print("Unable to get: ", moduleJson["repo"])
+            print("无法获取: ", moduleJson["repo"])
             return
         
         releases = ghRepo.get_releases()
         if releases.totalCount == 0:
-            print("No available releases for: ", moduleJson["repo"])
+            print("无可用版本: ", moduleJson["repo"])
             return
         ghLatestRelease = releases[0]
 
@@ -27,12 +27,11 @@ class GH():
         for pattern in moduleJson["assetRegex"]:
             matched_asset = None
             for asset in ghLatestRelease.get_assets():
-                print(asset.name)
                 if re.search(pattern, asset.name):
                     matched_asset = asset
                     break
             if matched_asset is None:
-                print("Did not find asset for pattern: ", pattern)
+                print("未找到文件: ", pattern)
                 return
 
             downloadFilePath = Path.joinpath(downloadPath, matched_asset.name)
