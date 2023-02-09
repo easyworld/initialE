@@ -85,8 +85,8 @@ class FS():
     def createDir(self, modulename, source):
         Path(Path.joinpath(self.workdir, modulename, source)).mkdir(parents=True, exist_ok=True)
 
-    def extract(self, modulename, source):
-        path = Path(Path.joinpath(self.workdir, modulename))
+    def extract(self, modulename, source, dest=""):
+        path = Path(Path.joinpath(self.workdir, modulename, dest))
         for filename in os.listdir(path):
             if re.search(source, filename):
                 assetPath = Path(Path.joinpath(path, filename))
