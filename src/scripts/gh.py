@@ -26,7 +26,6 @@ class GH():
 
         for pattern in moduleJson["assetRegex"]:
             matched_asset = None
-            print(ghLatestRelease.get_assets())
             for asset in ghLatestRelease.get_assets():
                 print(asset.name)
                 if re.search(pattern, asset.name):
