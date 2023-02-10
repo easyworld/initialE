@@ -32,8 +32,8 @@ if __name__ == '__main__':
                     if not fs.doesFolderExist(True, moduleName):
                         print("Downloading: " + module["repo"])
                         dlPath = fs.createDirs(moduleName)
+                        print("dlPath: " + dlPath)
                         downloadedFiles = gh.downloadLatestRelease(module, dlPath)
-
                         for customStep in module["customSteps"]:
 
                             if customStep["action"] == "createDir":
