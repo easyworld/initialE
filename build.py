@@ -119,9 +119,12 @@ if __name__ == '__main__':
     for e in infos:
         # print(list(e.keys())[0])
         for item in e:
-            print("key",item)
+            # print("key",item)
+            cmd = item
             for key, value in e[item].items():
-                print(key,value)
+                # print(key,value)
+                cmd = cmd + "|" + value
+        print(cmd)
     try:
         with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md")) as f:
             c = f.read()
