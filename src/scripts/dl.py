@@ -4,11 +4,9 @@ import re
 
 class DL():
     def __init__(self):
+        self.name = "下载链接"
 
     def downloadUrl(self, moduleJson, downloadPath):
-
-        downloadedFiles = []
-
         for url in moduleJson["url"]:
             try:
                 urllib.request.urlretrieve(url, downloadFilePath)
