@@ -8,6 +8,7 @@ class DL():
 
     def downloadUrl(self, moduleJson, downloadPath):
         for url in moduleJson["url"]:
+            print("url: ", url)
             try:
                 urllib.request.urlretrieve(url, downloadFilePath)
             except:
