@@ -1,15 +1,15 @@
 {
-    "repo":"WerWolv/ovl-sysmodules",
-    "assetRegex":[".*ovlSysmodules.*\\.ovl"],
+    "bak":"WerWolv/ovl-sysmodules",
+    "repo":"qhq/SwitchApp",
+    "assetRegex":[".*ovl-sysmodules.*\\.zip"],
     "customSteps":[
         {
             "action": "createDir",
             "source": "switch/.overlays"
         },
         {
-            "action": "move",
-            "source": "ovlSysmodules.ovl",
-            "destination": "switch/.overlays/ovlSysmodules.ovl"
+            "action": "extract",
+            "source": ".*ovl-sysmodules.*\\.zip"
         }
     ]
 }
