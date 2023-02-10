@@ -1,49 +1,20 @@
 {
     "version": "1.4.1",
     "packages":{
-        "qhq":{
+        "clean":{
             "active": true,
             "modules": [
                 "atmosphere", "hekate", "fusee",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
+                "nyx"
+            ]
+        },
+        "qhq":{
+            "active": false,
+            "modules": [
+                "atmosphere", "hekate", "fusee",
+                "TegraExplorer", "NX-Shell", "Lockpick_RCM",
                 "dbi", "jksv", "edizon"
-            ]
-        },
-        "ca1e":{
-            "active": false,
-            "modules": [
-                "atmosphere", "hekate", "sigpatches",
-                "deepseaToolbox", "ldn_mitm", "nx-ovlloader", "Tesla-Menu",
-                "TegraExplorer", "Lockpick_RCM",
-                "emuiibo", "Amiigo", "jksv", "tinwoo", "Awoo-Installer",
-                "nxdumptool", "NX-Shell", "MissionControl",
-                "dbi", "CaptureSight", "breeze", "Zing",
-                "linkalho", "QuickNTP", "SysDVR"
-            ]
-        },
-        "minimal":{
-            "active": false,
-            "modules": ["atmosphere", "hekate", "deepseaAssets", "hb-appstore"]
-        },
-        "normal":{
-            "active": false,
-            "modules": [
-                "atmosphere", "hekate", "deepseaAssets", "hb-appstore", 
-                "deepseaToolbox", "deepseaCleaner",
-                "aioUpdater", "edizon", "emuiibo", "jksv", "nxmtp", "tinwoo",
-                "sys-ftpd-light", "nx-ovlloader", "ovl-sysmodules", "Tesla-Menu",
-                "deepseaCPR"
-            ]
-        },
-        "advanced":{
-            "active": false,
-            "modules": [
-                "atmosphere", "hekate", "deepseaAssets", "hb-appstore", 
-                "deepseaToolbox", "deepseaCleaner",
-                "aioUpdater", "edizon", "emuiibo", "jksv", "nxmtp", "tinwoo",
-                "sys-clk", "sys-con","sys-ftpd-light",
-                "ldn_mitm", "nx-ovlloader", "ovl-sysmodules", "Tesla-Menu", "Status-Monitor-Overlay",
-                "deepseaCPR", "TegraExplorer", "NX-Shell", "MissionControl"
             ]
         }
     }
