@@ -1,0 +1,20 @@
+{
+    "repo":"qhq/SwitchApp",
+    "assetRegex":["nyx.zip"],
+    "customSteps":[
+        {
+            "action": "extract",
+            "source": "nyx.zip"
+        },
+        {
+            "action": "move",
+            "source": "bootloader/sys/nyx.bin",
+            "destination": "bootloader/sys/nyx.en.bin"
+        }
+        {
+            "action": "move",
+            "source": "nyx.bin",
+            "destination": "bootloader/sys/nyx.bin"
+        }
+    ]
+}
