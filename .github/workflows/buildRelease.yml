@@ -48,12 +48,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: | 
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
-        set -x
-        assets=()
-        for asset in *.zip; do
-          assets+=("$asset")
-        done 
-        filePack=${assets[@]}
+        ls
+        #for name  in `ls atmosphere-*.zip`;do rename 9.9.9 ${{ steps.set-version.outputs.version }} $name;done
+        #set -x
+        #assets=()
+        #for asset in *.zip; do
+        #  assets+=("$asset")
+        #done 
+        #filePack=${assets[@]}
         # unzip -u ${assets[@]} -d switch_out
         # wget -q https://jits.cc/patches -O sigpatches.zip
         # unzip -u sigpatches.zip -d switch_out
