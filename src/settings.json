@@ -14,7 +14,8 @@
             "modules": [
                 "atmosphere", "hekate", "sigpatches", "fusee",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
-                "nyx", "myapps"
+                "nyx", "emuiibo", "edizon", "dbi",
+                "nx-ovlloader", "ovl-sysmodules", "Status-Monitor-Overlay"
             ]
         }
     }
