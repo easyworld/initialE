@@ -108,12 +108,12 @@ if __name__ == '__main__':
         else:
             print("package inactive")
     print(infos)
+    infoJson = json.load(infos)
+    print(infoJson)
     try:
         with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md")) as f:
             c = f.read()
             print(c)
-            infoJson = json.load(infos)
-            print(infoJson)
     except:
         print("Could not load Package.")
         exit()
