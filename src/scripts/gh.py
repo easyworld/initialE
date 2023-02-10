@@ -18,21 +18,16 @@ class GH():
             return
         
         ghLatestTag = ghRepo.get_tags()[0]
-        
-        print( ghLatestTag.name) # v1.0
-        print( ghLatestTag.last_modified) # Fri, 23 Oct 2020 04:21:50 GMT
-        #print( i.raw_data)
+        print( "tag: " + ghLatestTag.name) # v1.0
+        # print( "time: " + ghLatestTag.last_modified) # Fri, 23 Oct 2020 04:21:50 GMT
+        print( i.raw_data)
         commit = ghLatestTag.commit # Commit(sha="7e700a25a6cb378d5c04d7cb3d616c14546d1c6b")
-
-    #    print(commit.last_modified) # Fri, 23 Oct 2020 04:21:50 GMT
-    #    print(commit.update()) # True
-
         timestamp =  commit.stats.last_modified # # Fri, 23 Oct 2020 04:21:50 GMT
-        
+       
         GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
         local_time = datetime.datetime.strptime(timestamp, GMT_FORMAT) + datetime.timedelta(hours=8)
-        now = local_time.strftime("%Y%m%d%H%M%S")
-        print(now)
+        now = local_time.strftime("%Y-%m-%d %H:%M:%S")
+        print("time: " + now)
 
         releases = ghRepo.get_releases()
         if releases.totalCount == 0:
