@@ -42,6 +42,7 @@ jobs:
     - name: 安装依赖
       run: |
         if [ -f ./requirements.txt ]; then pip3 install -r ./requirements.txt; fi
+        apt install rename
 
     - name: 打包文件
       env:
@@ -49,7 +50,7 @@ jobs:
       run: | 
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
         for asset in *.zip; do
-          mv "$asset" "$asset.${{ steps.set-version.outputs.version }}.zip"
+          rename "v9.9.9" "v${{ steps.set-version.outputs.version }}" "$asset" 
         done 
         #set -x
         #assets=()
