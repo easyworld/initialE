@@ -115,7 +115,7 @@ if __name__ == '__main__':
 
         else:
             print("package inactive")
-    print(infos)
+    print("版本信息：" + infos)
     for e in infos:
         # print(list(e.keys())[0])
         for item in e:
