@@ -108,12 +108,13 @@ if __name__ == '__main__':
         else:
             print("package inactive")
     print(infos)
+    for e in infos:
+        print(e.name)
+        print(e["tag"])
     try:
         with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md")) as f:
             c = f.read()
             print(c)
-            for e in infos:
-                print(e)
     except:
         print("Could not load Package.")
         exit()
