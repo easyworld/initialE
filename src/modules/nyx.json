@@ -10,7 +10,7 @@
             "action": "move",
             "source": "bootloader/sys/nyx.bin",
             "destination": "bootloader/sys/nyx.en.bin"
-        }
+        },
         {
             "action": "move",
             "source": "nyx.bin",
