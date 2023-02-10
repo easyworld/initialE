@@ -47,7 +47,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: | 
-        ls
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
         ls
         #for name  in `ls atmosphere-*.zip`;do rename 9.9.9 ${{ steps.set-version.outputs.version }} $name;done
