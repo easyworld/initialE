@@ -121,7 +121,7 @@ if __name__ == '__main__':
         # print(list(e.keys())[0])
         for item in e:
             # print("key",item)
-            cmd = cmd + item
+            cmd = cmd + "|" + item
             for key, value in e[item].items():
                 # print(key,value)
                 cmd = cmd + "|" + value
