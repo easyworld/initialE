@@ -42,7 +42,7 @@ jobs:
     - name: 安装依赖
       run: |
         if [ -f ./requirements.txt ]; then pip3 install -r ./requirements.txt; fi
-        apt install rename
+        sudo apt install rename
 
     - name: 打包文件
       env:
