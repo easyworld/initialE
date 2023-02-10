@@ -26,6 +26,7 @@ if __name__ == '__main__':
     for packageName in settings["packages"]:
         packageObj = settings["packages"][packageName]
         if packageObj["active"] == True:
+            infos = []
             print("=== packageName: " + packageName + " ===")
             for moduleName in packageObj["modules"]:
                 if fs.doesFilesExist(False, "src/modules/"+moduleName+".json"):
@@ -38,7 +39,7 @@ if __name__ == '__main__':
                         if "url" in module:
                             print("Downloading: " + module["file"])
                             downloadedFiles = dl.downloadUrl(module, dlPath)
-                        print(downloadedFiles)
+                        
                         for customStep in module["customSteps"]:
 
                             if customStep["action"] == "createDir":
@@ -93,12 +94,14 @@ if __name__ == '__main__':
                     # fs.copy("", str(Path(Path.joinpath(fs.workdir, moduleName))), outPath)
                 else:
                     print("module file does not exist")
+                infos.append({moduleName:downloadedFiles})
             shutil.copytree(str(Path(Path.joinpath(Path.cwd(), "assets"))), str(Path(Path.joinpath(fs.workdir, "switch_out"))), dirs_exist_ok=True)
             # fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "boot.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","boot.ini"))))
             # fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "exosphere.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","exosphere.ini"))))
             print("Zipping package: " + "atmosphere-"+packageName+"_v"+settings["version"])
             shutil.make_archive("atmosphere-"+packageName+"_v"+settings["version"],'zip',outPath)
             fs.delete("",outPath)
+            print(infos)
 
         else:
             print("package inactive")
