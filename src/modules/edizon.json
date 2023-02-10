@@ -1,24 +1,11 @@
 {
-    "repo":"tomvita/EdiZon-SE",
+    "bak":"tomvita/EdiZon-SE",
+    "repo":"qhq/SwitchApp",
     "assetRegex":[".*EdiZon.*\\.zip"],
     "customSteps":[
         {
             "action": "extract",
-            "path": "temp",
             "source": ".*EdiZon.*\\.zip"
-        },
-        {
-            "action": "createDir",
-            "source": "switch/EdiZon"
-        },
-        {
-            "action": "move",
-            "source": "temp/switch/EdiZon/EdiZon.nro",
-            "destination": "switch/EdiZon/EdiZon.nro"
-        },
-        {
-            "action": "delete",
-            "source": "temp"
         }
     ]
 }
