@@ -1,19 +1,19 @@
 {
     "version": "9.9.9",
     "packages":{
-        "clean":{
-            "active": true,
-            "modules": [
-                "atmosphere", "hekate", "sigpatches", "fusee",
-                "TegraExplorer", "NX-Shell", "Lockpick_RCM"
-            ]
-        },
         "qhq":{
             "active": true,
             "modules": [
                 "atmosphere", "hekate", "sigpatches", "fusee",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
                 "dbi", "jksv", "edizon"
+            ]
+        },
+        "clean":{
+            "active": true,
+            "modules": [
+                "atmosphere", "hekate", "sigpatches", "fusee",
+                "TegraExplorer", "NX-Shell", "Lockpick_RCM"
             ]
         }
     }
