@@ -82,7 +82,10 @@ if __name__ == '__main__':
                                 print("- custom step: " + customStep["action"] + " -> " + customStep["source"])
                                 fs.createToolboxJson(moduleName, customStep["source"], customStep["requires_reboot"] )
                     else:
-                        print("Already downloaded: " + module["repo"])
+                        if "repo" in module:
+                            print("Already downloaded: " + module["repo"])
+                        if "url" in module:
+                            print("Already downloaded: " + module["file"])
 
                     outPath = str(fs.createDirs("switch_out"))
                     # print(outPath)
