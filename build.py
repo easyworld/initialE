@@ -120,12 +120,12 @@ if __name__ == '__main__':
         # print(list(e.keys())[0])
         for item in e:
             # print("key",item)
-            cmd = item
+            cmd = cmd + item
             for key, value in e[item].items():
                 # print(key,value)
                 cmd = cmd + "|" + value
-        cmds = cmd + "\n"
-    print(cmds)
+        cmd = cmd + "\n"
+    print(cmd)
     try:
         with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md")) as f:
             c = f.read()
