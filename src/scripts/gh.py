@@ -30,7 +30,7 @@ class GH():
         # print("last modified: " + now)
         
         info = {"tag":ghLatestTag.name,"last_modified":now}
-        print(info)
+        # print(info)
         
         releases = ghRepo.get_releases()
         if releases.totalCount == 0:
