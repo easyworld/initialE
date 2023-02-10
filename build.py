@@ -22,11 +22,12 @@ if __name__ == '__main__':
     gh = GH.GH(args.githubToken)
     dl = DL.DL()
     fs = FS.FS()
+    
+    infos = []
 
     for packageName in settings["packages"]:
         packageObj = settings["packages"][packageName]
         if packageObj["active"] == True:
-            infos = []
             print("=== packageName: " + packageName + " ===")
             for moduleName in packageObj["modules"]:
                 if fs.doesFilesExist(False, "src/modules/"+moduleName+".json"):
@@ -101,7 +102,7 @@ if __name__ == '__main__':
             print("Zipping package: " + "atmosphere-"+packageName+"_v"+settings["version"])
             shutil.make_archive("atmosphere-"+packageName+"_v"+settings["version"],'zip',outPath)
             fs.delete("",outPath)
-            print(infos)
 
         else:
             print("package inactive")
+    print(infos)
