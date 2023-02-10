@@ -7,26 +7,30 @@
             "source": "switch/.overlays"
         },
         {
+            "action": "extract",
+            "source": "EdiZon.zip"
+        },
+        {
+            "action": "extract",
+            "source": "nyx.zip"
+        },
+        {
+            "action": "move",
+            "source": "bootloader/sys/nyx.bin",
+            "destination": "bootloader/sys/nyx.en.bin"
+        },
+        {
+            "action": "move",
+            "source": "nyx.bin",
+            "destination": "bootloader/sys/nyx.bin"
+        },
+        {
+            "action": "extract",
+            "source": "emuiibo.zip"
+        },
+        {
             "action": "createDir",
-            "source": "switch/CaptureSight"
-        },
-        {
-            "action": "extract",
-            "source": "CaptureSight-Overlay.zip"
-        },
-        {
-            "action": "extract",
-            "source": "CaptureSight-Applet.zip"
-        },
-        {
-            "action": "move",
-            "source": "CaptureSight-Overlay.ovl",
-            "destination": "switch/.overlays/CaptureSight-Overlay.ovl"
-        },
-        {
-            "action": "move",
-            "source": "CaptureSight.nro",
-            "destination": "switch/CaptureSight/CaptureSight.nro"
+            "source": "atmosphere/contents/0100000000000352_emuiibo"
         }
     ]
 }
