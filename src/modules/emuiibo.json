@@ -1,5 +1,6 @@
 {
-    "repo":"XorTroll/emuiibo",
+    "bak":"XorTroll/emuiibo",
+    "repo":"qhq/SwitchApp",
     "assetRegex":[".*emuiibo.*\\.zip"],
     "customSteps":[
         {
@@ -7,18 +8,8 @@
             "source": ".*emuiibo.*\\.zip"
         },
         {
-            "action": "move",
-            "source": "SdOut/atmosphere",
-            "destination": "atmosphere"
-        },
-        {
-            "action": "move",
-            "source": "SdOut/switch",
-            "destination": "switch"
-        },
-        {
-            "action": "delete",
-            "source": "SdOut"
+            "action": "createDir",
+            "source": "atmosphere/contents/0100000000000352_emuiibo"
         },
         {
             "action": "delete",
