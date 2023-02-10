@@ -54,12 +54,12 @@ jobs:
           assets+=("$asset")
         done 
         filePack=${assets[@]}
-        unzip -u ${assets[@]} -d switch_out
-        wget -q https://jits.cc/patches -O sigpatches.zip
-        unzip -u sigpatches.zip -d switch_out
-        rm ${assets[@]}
-        rm sigpatches.zip
-        zip -q -r "Atmosphere_v${{ steps.set-version.outputs.version }}.zip" switch_out
+        # unzip -u ${assets[@]} -d switch_out
+        # wget -q https://jits.cc/patches -O sigpatches.zip
+        # unzip -u sigpatches.zip -d switch_out
+        # rm ${assets[@]}
+        # rm sigpatches.zip
+        # zip -q -r "Atmosphere_v${{ steps.set-version.outputs.version }}.zip" switch_out
         # filePack='-a ./deepsea-qhq_v1.4.1.zip'
         # 发布
         # hub release create "${assets[@]}" -m "Atmosphere v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
