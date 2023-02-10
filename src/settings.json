@@ -1,7 +1,7 @@
 {
     "version": "9.9.9",
     "packages":{
-        "clean":{
+        "三件套":{
             "active": true,
             "modules": [
                 "atmosphere", "hekate", "sigpatches", "fusee",
