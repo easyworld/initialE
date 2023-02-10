@@ -49,7 +49,7 @@ jobs:
       run: | 
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
         for asset in *.zip; do
-          rename '9.9.9' '${{ steps.set-version.outputs.version }}' '$asset'
+          mv '$asset' '$asset.${{ steps.set-version.outputs.version }}.zip'
         done 
         #set -x
         #assets=()
