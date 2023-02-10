@@ -49,9 +49,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: | 
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
-        ls
-        # rename 'v9.9.9' "v${{ steps.set-version.outputs.version }}" *
-        rename -n 's/v9\.9\.9/v${{ steps.set-version.outputs.version }}/g' *.zip
+        # ls
+        rename 's/v9\.9\.9/v${{ steps.set-version.outputs.version }}/g' *.zip
         #set -x
         #assets=()
         #for asset in *.zip; do
