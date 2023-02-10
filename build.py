@@ -22,7 +22,6 @@ if __name__ == '__main__':
     gh = GH.GH(args.githubToken)
     fs = FS.FS()
 
-
     for packageName in settings["packages"]:
         packageObj = settings["packages"][packageName]
         if packageObj["active"] == True:
@@ -32,7 +31,6 @@ if __name__ == '__main__':
                     if not fs.doesFolderExist(True, moduleName):
                         print("Downloading: " + module["repo"])
                         dlPath = fs.createDirs(moduleName)
-                        print("dlPath: " + dlPath)
                         downloadedFiles = gh.downloadLatestRelease(module, dlPath)
                         for customStep in module["customSteps"]:
 
