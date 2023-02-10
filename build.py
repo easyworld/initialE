@@ -117,9 +117,11 @@ if __name__ == '__main__':
             print("package inactive")
     print(infos)
     for e in infos:
-        print(list(e.keys())[0])
-        for item in e:
+        # print(list(e.keys())[0])
+        for item in e.items():
             print(item)
+            for key, value in item.items():
+                print(key,value)
     try:
         with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md")) as f:
             c = f.read()
