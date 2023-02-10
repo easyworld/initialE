@@ -26,6 +26,7 @@ if __name__ == '__main__':
     for packageName in settings["packages"]:
         packageObj = settings["packages"][packageName]
         if packageObj["active"] == True:
+            print("=== packageName: " + packageName + " ===")
             for moduleName in packageObj["modules"]:
                 if fs.doesFilesExist(False, "src/modules/"+moduleName+".json"):
                     module = fs.getJson(False, "src/modules/"+moduleName+".json")
