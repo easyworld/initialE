@@ -1,6 +1,6 @@
 {
     "repo":"Atmosphere-NX/Atmosphere",
-    "assetRegex":[".*atmosphere.*\\.zip"],
+    "assetRegex":[".*atmosphere.*\\.zip","fusee.bin"],
     "customSteps":[
         {
             "action": "extract",
@@ -36,6 +36,15 @@
             "source": "atmosphere/config/system_settings.ini",
             "target": "; usb30_force_enabled = u8!0x0",
             "replacement":"usb30_force_enabled = u8!0x0"
+        },
+        {
+            "action": "createDir",
+            "source": "bootloader/payloads"
+        },
+        {
+            "action": "move",
+            "source": "fusee.bin",
+            "destination": "bootloader/payloads/fusee.bin"
         }
     ]
 }
