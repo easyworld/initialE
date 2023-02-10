@@ -7,7 +7,7 @@
             "source": "nyx.zip"
         },
         {
-            "action": "move",
+            "action": "copy",
             "source": "bootloader/sys/nyx.bin",
             "destination": "bootloader/sys/nyx.en.bin"
         },
