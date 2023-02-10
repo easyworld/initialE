@@ -38,7 +38,7 @@ if __name__ == '__main__':
                         if "url" in module:
                             print("Downloading: " + module["file"])
                             downloadedFiles = dl.downloadUrl(module, dlPath)
-                        print("downloadedFiles: " + downloadedFiles)
+                        print(downloadedFiles)
                         for customStep in module["customSteps"]:
 
                             if customStep["action"] == "createDir":
