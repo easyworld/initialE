@@ -1,4 +1,4 @@
-import src.scripts.gh as GH, src.scripts.fs as FS
+import src.scripts.gh as GH, src.scripts.fs as FS, src.scripts.dl as DL
 import argparse, json, os, importlib, shutil
 from pathlib import Path
 from distutils.dir_util import copy_tree
@@ -20,6 +20,7 @@ if __name__ == '__main__':
 
     shutil.rmtree("tmp", ignore_errors=True)
     gh = GH.GH(args.githubToken)
+    dl = DL.DL()
     fs = FS.FS()
 
     for packageName in settings["packages"]:
@@ -29,9 +30,14 @@ if __name__ == '__main__':
                 if fs.doesFilesExist(False, "src/modules/"+moduleName+".json"):
                     module = fs.getJson(False, "src/modules/"+moduleName+".json")
                     if not fs.doesFolderExist(True, moduleName):
-                        print("Downloading: " + module["repo"])
                         dlPath = fs.createDirs(moduleName)
-                        downloadedFiles = gh.downloadLatestRelease(module, dlPath)
+                        if "repo" in moduleName:
+                            print("Downloading: " + module["repo"])
+                            downloadedFiles = gh.downloadLatestRelease(module, dlPath)
+                        if "url" in moduleName:
+                            print("Downloading: " + module["url"])
+                            downloadedFiles = dl.downloadUrl(module, dlPath)
+
                         for customStep in module["customSteps"]:
 
                             if customStep["action"] == "createDir":
