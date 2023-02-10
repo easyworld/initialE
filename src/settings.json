@@ -4,7 +4,7 @@
         "clean":{
             "active": true,
             "modules": [
-                "atmosphere", "hekate", "sigpatches", "fusee",
+                "atmosphere", "hekate", "sigpatches",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
                 "nyx"
             ]
@@ -12,7 +12,7 @@
         "qhq":{
             "active": true,
             "modules": [
-                "atmosphere", "hekate", "sigpatches", "fusee",
+                "atmosphere", "hekate", "sigpatches",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
                 "nyx", "emuiibo", "edizon", "dbi",
                 "nx-ovlloader", "ovl-sysmodules", "Status-Monitor-Overlay"
