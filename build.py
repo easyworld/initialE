@@ -40,7 +40,7 @@ if __name__ == '__main__':
                             downloadedFiles = gh.downloadLatestRelease(module, dlPath)
                         if "url" in module:
                             print("Downloading: " + module["file"])
-                            downloadedFiles4Url = dl.downloadUrl(module, dlPath)
+                            downloadedFiles = dl.downloadUrl(module, dlPath)
 
                         for customStep in module["customSteps"]:
 
@@ -96,7 +96,8 @@ if __name__ == '__main__':
                     # fs.copy("", str(Path(Path.joinpath(fs.workdir, moduleName))), outPath)
                 else:
                     print("module file does not exist")
-                infos.append({moduleName:downloadedFiles})
+                if downloadedFiles != {}:
+                    infos.append({moduleName:downloadedFiles})
             shutil.copytree(str(Path(Path.joinpath(Path.cwd(), "assets"))), str(Path(Path.joinpath(fs.workdir, "switch_out"))), dirs_exist_ok=True)
             # fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "boot.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","boot.ini"))))
             # fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "exosphere.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","exosphere.ini"))))
