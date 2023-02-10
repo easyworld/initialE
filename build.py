@@ -116,6 +116,7 @@ if __name__ == '__main__':
         else:
             print("package inactive")
     print(infos)
+    cmd = ""
     for e in infos:
         # print(list(e.keys())[0])
         for item in e:
@@ -130,6 +131,7 @@ if __name__ == '__main__':
         with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md")) as f:
             c = f.read()
             print(c)
+            f.write("## 版本信息\n|:-|:-|:-|\n" + cmd +"\n" + c)
     except:
         print("Could not load Package.")
         exit()
