@@ -35,6 +35,7 @@ class GH():
                 return
 
             downloadFilePath = Path.joinpath(downloadPath, matched_asset.name)
+            print("downloadFilePath: ", downloadFilePath)
             urllib.request.urlretrieve(matched_asset.browser_download_url, downloadFilePath)
             downloadedFiles.append(downloadFilePath)
         
