@@ -23,7 +23,7 @@ jobs:
     - name: 当前日期
       id: date
       run: |
-        echo "date=$(date +'%YY%mm%dd')" >> $GITHUB_OUTPUT
+        echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
         # ${{ steps.date.outputs.date }}
 
     - name: 获取版本
