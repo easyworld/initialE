@@ -5,8 +5,7 @@
             "active": true,
             "modules": [
                 "atmosphere", "hekate", "fusee",
-                "TegraExplorer", "NX-Shell", "Lockpick_RCM",
-                "nyx"
+                "TegraExplorer", "NX-Shell", "Lockpick_RCM"
             ]
         },
         "qhq":{
