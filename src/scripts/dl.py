@@ -10,6 +10,7 @@ class DL():
         for url in moduleJson["url"]:
             try:
                 downloadFilePath = Path.joinpath(downloadPath, moduleJson["file"])
+                print("downloadFilePath: ",downloadFilePath)
                 urllib.request.urlretrieve(url, downloadFilePath)
             except:
                 print("无法获取: ", url)
