@@ -31,10 +31,10 @@ if __name__ == '__main__':
                     module = fs.getJson(False, "src/modules/"+moduleName+".json")
                     if not fs.doesFolderExist(True, moduleName):
                         dlPath = fs.createDirs(moduleName)
-                        if "repo" in moduleName:
+                        if "repo" in module:
                             print("Downloading: " + module["repo"])
                             downloadedFiles = gh.downloadLatestRelease(module, dlPath)
-                        if "url" in moduleName:
+                        if "url" in module:
                             print("Downloading: " + module["url"])
                             downloadedFiles = dl.downloadUrl(module, dlPath)
 
