@@ -49,23 +49,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: | 
         python ./build.py -gt="$GITHUB_TOKEN" -v="v${{ steps.set-version.outputs.version }}"
-        # ls
         rename 's/v9\.9\.9/v${{ steps.set-version.outputs.version }}/g' *.zip
-        #set -x
-        #assets=()
-        #for asset in *.zip; do
-        #  assets+=("$asset")
-        #done 
-        #filePack=${assets[@]}
-        # unzip -u ${assets[@]} -d switch_out
-        # wget -q https://jits.cc/patches -O sigpatches.zip
-        # unzip -u sigpatches.zip -d switch_out
-        # rm ${assets[@]}
-        # rm sigpatches.zip
-        # zip -q -r "Atmosphere_v${{ steps.set-version.outputs.version }}.zip" switch_out
-        # filePack='-a ./deepsea-qhq_v1.4.1.zip'
-        # 发布
-        # hub release create "${assets[@]}" -m "Atmosphere v${{ steps.set-version.outputs.version }}" "v${{ steps.set-version.outputs.version }}"
 
     - name: 发布
       uses: ncipollo/release-action@v1
@@ -74,15 +58,7 @@ jobs:
         allowUpdates: true
         tag: v${{ steps.set-version.outputs.version }}
         name: Atmosphere v${{ steps.set-version.outputs.version }}
-        body: |
-          三件套
-          （1）atmosphere
-          https://github.com/Atmosphere-NX/Atmosphere
-          （2）hekate_ctcaer
-          https://github.com/CTCaer/hekate
-          （3）Sigpatches
-          https://github.com/fraxalotl/SwitchScript
-          https://jits.cc/patches
+        bodyFile: "CHANGELOG.md"
         prerelease: false
         artifacts: "*.zip"
 
