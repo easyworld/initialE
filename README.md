@@ -1,7 +1,7 @@
 ---
 
-## 说明
-# [setting.json](https://github.com/qhq/DeepSea/blob/custom/src/settings.json)
+# 说明
+## [setting.json](https://github.com/qhq/DeepSea/blob/custom/src/settings.json)
 ```
 "clean":{
     "active": true,
@@ -11,6 +11,7 @@
     ]
 }
 ```
+|:-|:-:|-:|
 |clean|配置名|
 |active|配置是否激活|
 |modules|打包模块|
