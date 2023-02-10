@@ -8,13 +8,12 @@ class DL():
 
     def downloadUrl(self, moduleJson, downloadPath):
         for url in moduleJson["url"]:
-            print("url: ", url)
             try:
+                downloadFilePath = Path.joinpath(downloadPath, moduleJson["file"])
                 urllib.request.urlretrieve(url, downloadFilePath)
             except:
                 print("无法获取: ", url)
                 return
 
-            downloadFilePath = Path.joinpath(downloadPath, moduleJson["file"])
             urllib.request.urlretrieve(url, downloadFilePath)
 
