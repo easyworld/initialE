@@ -4,14 +4,14 @@
         "clean":{
             "active": true,
             "modules": [
-                "sigpatches", "atmosphere", "hekate", "fusee",
+                "atmosphere", "hekate", "sigpatches", "fusee",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM"
             ]
         },
         "qhq":{
-            "active": false,
+            "active": true,
             "modules": [
-                "atmosphere", "hekate", "fusee",
+                "atmosphere", "hekate", "sigpatches", "fusee",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
                 "dbi", "jksv", "edizon"
             ]
