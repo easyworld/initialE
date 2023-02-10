@@ -11,15 +11,16 @@
     ]
 }
 ```
+|:-:|:-:|
 |参数|说明|
-|:-|-:|
+|:-|:-|
 |clean|配置名称|
 |active|配置是否激活|
 |modules|打包的模块|
 
 ## [modules](https://github.com/qhq/DeepSea/tree/custom/src/modules)
 |参数|说明|备注|
-|:-|:-:|-:|
+|:-|:-|:-|
 |repo\|url|GitHub库名或链接|file配合url使用，指定保存文件名|
 |createDir|新建目录|复制黏贴涉及目录需要先创建|
 |extract|解压缩|path可指定解压缩目录|
