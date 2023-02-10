@@ -1,10 +1,15 @@
 {
-    "repo":"WerWolv/nx-ovlloader",
+    "bak":"WerWolv/nx-ovlloader",
+    "repo":"qhq/SwitchApp",
     "assetRegex":[".*nx-ovlloader.*\\.zip"],
     "customSteps":[
         {
             "action": "extract",
             "source": ".*nx-ovlloader.*\\.zip"
+        },
+        {
+            "action": "createDir",
+            "source": "atmosphere/contents/420000000007E51A_tesla"
         }
     ]
 }
