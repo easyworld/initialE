@@ -18,7 +18,7 @@ class GH():
             return
         
         ghLatestTag = ghRepo.get_tags()[0]
-        print( "tag: " + ghLatestTag.name) # v1.0
+        # print( "last tag: " + ghLatestTag.name) # v1.0
         # print( "time: " + ghLatestTag.last_modified) # Fri, 23 Oct 2020 04:21:50 GMT
         # print( "raw: " + ghLatestTag.raw_data)
         commit = ghLatestTag.commit # Commit(sha="7e700a25a6cb378d5c04d7cb3d616c14546d1c6b")
@@ -27,8 +27,11 @@ class GH():
         GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
         local_time = datetime.datetime.strptime(timestamp, GMT_FORMAT) + datetime.timedelta(hours=8)
         now = local_time.strftime("%Y-%m-%d %H:%M:%S")
-        print("time: " + now)
-
+        # print("last modified: " + now)
+        
+        info = {"tag":ghLatestTag.name,"last_modified":now}
+        print(info)
+        
         releases = ghRepo.get_releases()
         if releases.totalCount == 0:
             print("无可用版本: ", moduleJson["repo"])
@@ -52,4 +55,5 @@ class GH():
             urllib.request.urlretrieve(matched_asset.browser_download_url, downloadFilePath)
             downloadedFiles.append(downloadFilePath)
         
-        return downloadedFiles
+        # return downloadedFiles
+        return info
