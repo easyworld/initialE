@@ -1,6 +1,6 @@
 {
-    "repo":"https://jits.cc/patches",
-    "assetRegex":[".*[hekate|SigPatches].*\\.zip"],
+    "url":"https://jits.cc/patches",
+    "file":"SigPatches.zip",
     "customSteps":[
         {
             "action": "extract",
