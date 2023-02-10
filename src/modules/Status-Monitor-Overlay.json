@@ -1,15 +1,11 @@
 {
-    "repo":"masagrator/Status-Monitor-Overlay",
-    "assetRegex":[".*Status-Monitor-Overlay.*\\.ovl"],
+    "bak":"masagrator/Status-Monitor-Overlay",
+    "repo":"qhq/SwitchApp",
+    "assetRegex":[".*Status-Monitor-Overlay.*\\.zip"],
     "customSteps":[
         {
-            "action": "createDir",
-            "source": "switch/.overlays"
-        },
-        {
-            "action": "move",
-            "source": "Status-Monitor-Overlay.ovl",
-            "destination": "switch/.overlays/Status-Monitor-Overlay.ovl"
+            "action": "extract",
+            "source": ".*Status-Monitor-Overlay.*\\.zip"
         }
     ]
 }
