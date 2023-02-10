@@ -3,6 +3,14 @@ import argparse, json, os, importlib, shutil
 from pathlib import Path
 from distutils.dir_util import copy_tree
 
+# 递归实现多重for循环的函数
+def fn(_dict, depth):
+    for k, v in _dict.items():
+        if depth == 1:
+            yield k, v
+        else:
+            yield from ((k, *q) for q in fn(v, depth - 1))
+            
 if __name__ == '__main__':
     
     parser = argparse.ArgumentParser(description="TeamNeptune's DeepSea build script.")
@@ -108,6 +116,8 @@ if __name__ == '__main__':
         else:
             print("package inactive")
     print(infos)
+    for k, v, x in fn(infos, 2):
+        print(k, v, x)
     for e in infos:
         print(e)
         print(e.value)
