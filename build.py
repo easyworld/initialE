@@ -35,7 +35,7 @@ if __name__ == '__main__':
                             print("Downloading: " + module["repo"])
                             downloadedFiles = gh.downloadLatestRelease(module, dlPath)
                         if "url" in module:
-                            print("Downloading: " + module["url"](0))
+                            print("Downloading: " + module["url"][0])
                             downloadedFiles = dl.downloadUrl(module, dlPath)
 
                         for customStep in module["customSteps"]:
