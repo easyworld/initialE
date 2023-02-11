@@ -116,17 +116,17 @@ if __name__ == '__main__':
         else:
             print("package inactive")
     print(infos)
-    cmd = "|模块|版本|更新时间|\n|:-|:-|:-|\n"
+    cmd = "|模块|版本|更新时间|链接|\n|:-|:-|:-|:-|\n"
     for e in infos:
         # print(list(e.keys())[0])
         for item in e:
             # print("key",item)
-            cmd = cmd + "|" + item
-            print(e[item]["tag"])
-            for key, value in e[item].items():
+            cmd = cmd + "|" + item  + "|" + e[item]["tag"]  + "|" + e[item]["last_modified"]  + "|" + e[item]["url"] + "|\n"
+            # print(e[item]["tag"])
+            # for key, value in e[item].items():
                 # print(key,value)
-                cmd = cmd + "|" + value
-        cmd = cmd + "|\n"
+                #cmd = cmd + "|" + value
+        # cmd = cmd + "|\n"
     # print(cmd)
     try:
         with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md"), 'r') as f:
