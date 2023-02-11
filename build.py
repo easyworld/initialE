@@ -128,13 +128,11 @@ if __name__ == '__main__':
         cmd = cmd + "|\n"
     # print(cmd)
     try:
-
-        print(Path.cwd())
         with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md")) as f:
             c = f.read()
             print(c)
-            f.write("## 版本信息\n|:-|:-|:-|\n" + cmd +"\n" + c)
+            f.write("## 版本信息\n|:-|:-|:-|\n" + cmd + "\n" + c)
 
-    except:
-        print("Could not load Package.")
+    except Exception as e:
+        print(e.args)
         exit()
