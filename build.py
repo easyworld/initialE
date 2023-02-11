@@ -128,7 +128,7 @@ if __name__ == '__main__':
         cmd = cmd + "|\n"
     # print(cmd)
     try:
-        with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md")) as f:
+        with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md"), '+') as f:
             c = f.read()
             print(c)
             f.write("## 版本信息\n|:-|:-|:-|\n" + cmd + "\n" + c)
