@@ -9,11 +9,7 @@ class DL():
 
     def downloadUrl(self, moduleJson, downloadPath):
 
-        current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-        GMT_FORMAT = '%Y-%m-%d %H:%M:%S'
-        local_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + datetime.timedelta(hours=8)
-        now = local_time.strftime("%Y-%m-%d %H:%M:%S")
+        now = (datetime.datetime.now() + datetime.timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
 
         for url in moduleJson["url"]:
             try:
