@@ -132,6 +132,10 @@ if __name__ == '__main__':
             c = f.read()
             # print(c)
             f.write("## 版本信息\n|:-|:-|:-|\n" + cmd +"\n" + c)
+
+            c = f.read()
+            print(c)
+
     except:
         print("Could not load Package.")
         exit()
