@@ -38,7 +38,7 @@ if __name__ == '__main__':
         if packageObj["active"] == True:
             print("=== packageName: " + packageName + " ===")
             for moduleName in packageObj["modules"]:
-                # downloadedFiles = {}
+                downloadedFiles = None
                 if fs.doesFilesExist(False, "src/modules/"+moduleName+".json"):
                     module = fs.getJson(False, "src/modules/"+moduleName+".json")
                     if not fs.doesFolderExist(True, moduleName):
@@ -128,13 +128,12 @@ if __name__ == '__main__':
         cmd = cmd + "|\n"
     # print(cmd)
     try:
+
+        print(Path.cwd())
         with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md")) as f:
             c = f.read()
-            # print(c)
-            f.write("## 版本信息\n|:-|:-|:-|\n" + cmd +"\n" + c)
-
-            c = f.read()
             print(c)
+            f.write("## 版本信息\n|:-|:-|:-|\n" + cmd +"\n" + c)
 
     except:
         print("Could not load Package.")
