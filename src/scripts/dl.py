@@ -11,8 +11,8 @@ class DL():
 
         current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
-        local_time = datetime.datetime.strptime(current_time + " GMT", GMT_FORMAT) + datetime.timedelta(hours=8)
+        GMT_FORMAT = '%a, %d %b %Y %H:%M:%S'
+        local_time = datetime.datetime.strptime(current_time, GMT_FORMAT) + datetime.timedelta(hours=8)
         now = local_time.strftime("%Y-%m-%d %H:%M:%S")
 
         for url in moduleJson["url"]:
