@@ -116,7 +116,7 @@ if __name__ == '__main__':
         else:
             print("package inactive")
     print(infos)
-    cmd = ""
+    cmd = "|模块|版本|更新时间|\n|:-|:-|:-|\n"
     for e in infos:
         # print(list(e.keys())[0])
         for item in e:
@@ -128,10 +128,11 @@ if __name__ == '__main__':
         cmd = cmd + "|\n"
     # print(cmd)
     try:
-        with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md"), 'r+') as f:
+        with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md"), 'r') as f:
             c = f.read()
-            print(c)
-            f.write("## 版本信息\n|:-|:-|:-|\n" + cmd + "\n" + c)
+            # print(c)
+        with open(Path.joinpath(Path.cwd(), "", "CHANGELOG.md"), 'w+') as f:
+            f.write("## 版本信息\n" + cmd + "\n" + c)
 
     except Exception as e:
         print(e.args)
