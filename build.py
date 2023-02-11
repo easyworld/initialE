@@ -48,7 +48,7 @@ if __name__ == '__main__':
                             downloadedFiles = gh.downloadLatestRelease(module, dlPath)
                         if "url" in module:
                             print("Downloading: " + module["file"])
-                            downloadedFiles4Url = dl.downloadUrl(module, dlPath)
+                            downloadedFiles = dl.downloadUrl(module, dlPath)
 
                         for customStep in module["customSteps"]:
 
@@ -122,6 +122,7 @@ if __name__ == '__main__':
         for item in e:
             # print("key",item)
             cmd = cmd + "|" + item
+            print(e[item]["tag"])
             for key, value in e[item].items():
                 # print(key,value)
                 cmd = cmd + "|" + value
