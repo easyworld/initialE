@@ -121,7 +121,7 @@ if __name__ == '__main__':
         # print(list(e.keys())[0])
         for item in e:
             # print("key",item)
-            cmd = cmd + "|" + item  + "|" + e[item]["tag"]  + "|" + e[item]["last_modified"]  + "|" + e[item]["url"] + "|\n"
+            cmd = cmd + "|" + item  + "|" + e[item]["tag"]  + "|" + e[item]["last_modified"]  + "|[下载](" + e[item]["url"] + ")|\n"
             # print(e[item]["tag"])
             # for key, value in e[item].items():
                 # print(key,value)
