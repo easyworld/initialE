@@ -1,6 +1,6 @@
 # 默认设置
 - exosphere.ini
-   序列号真实破解系统（sysmmc）不屏蔽、虚拟系统（emummc）屏蔽
+-    序列号真实破解系统（sysmmc）不屏蔽、虚拟系统（emummc）屏蔽
 - /atmosphere/config/override_config.ini
    默认相册直接进入，按住R进入hbmenu
 - /atmosphere/config/system_settings.ini 
