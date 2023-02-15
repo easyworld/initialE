@@ -13,8 +13,8 @@
   - add_defaults_to_dns_hosts = u8!0x1 添加默认配置到host文件
 - [/atmosphere/hosts/](https://github.com/qhq/DeepSea/blob/custom/assets/atmosphere/hosts)
   - default.txt 默认生成配置
-  - emummc.txt 虚拟系统host
-  - sysmmc.txt   真实破解host（需要自建）
+  - emummc.txt  虚拟系统host
+  - sysmmc.txt  真实破解host（有需要自建）
 - [/config/](https://github.com/qhq/DeepSea/blob/custom/assets/config)
   - tesla/config.ini 特斯拉热键L+DDOWN+PLUS（L+十字键下+加号）
   - TeslaMenu/sort.cfg 中文特斯拉排序文件
