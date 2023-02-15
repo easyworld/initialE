@@ -1,7 +1,8 @@
 # 默认设置
 
 - [exosphere.ini](https://github.com/qhq/DeepSea/blob/custom/assets/exosphere.ini)
-  - 序列号真实破解系统（sysmmc）不屏蔽、虚拟系统（emummc）屏蔽
+  - blank_prodinfo_sysmmc=0 真实破解系统（sysmmc）不屏蔽序列号
+  - blank_prodinfo_emummc=1 虚拟系统（emummc）屏蔽序列号
 - [/atmosphere/config/override_config.ini](https://github.com/qhq/DeepSea/blob/custom/assets/atmosphere/config/override_config.ini)
   - 默认相册直接进入，按住R进入hbmenu
 - [/atmosphere/config/system_settings.ini](https://github.com/qhq/DeepSea/blob/custom/assets/atmosphere/config/system_settings.ini)
@@ -13,7 +14,7 @@
 - [/atmosphere/hosts/](https://github.com/qhq/DeepSea/blob/custom/assets/atmosphere/hosts)
   - default.txt 默认生成配置
   - emummc.txt 虚拟系统host
-  - sysmmc.txt   真实破解host（默认无此文件）
+  - sysmmc.txt   真实破解host（需要自建）
 - [/config/](https://github.com/qhq/DeepSea/blob/custom/assets/config)
   - tesla/config.ini 特斯拉热键L+DDOWN+PLUS（L+十字键下+加号）
   - TeslaMenu/sort.cfg 中文特斯拉排序文件
