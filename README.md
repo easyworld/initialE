@@ -1,5 +1,22 @@
+# 默认设置
+-exosphere.ini
+   序列号真实破解系统（sysmmc）不屏蔽、虚拟系统（emummc）屏蔽
+-/atmosphere/config/override_config.ini
+   默认相册直接进入，按住R进入hbmenu
+-/atmosphere/config/system_settings.ini 
+   usb30_force_enabled = u8!0x1	启用USB3.0
+   dmnt_cheats_enabled_by_default = u8!0x0	作弊码默认停用
+   dmnt_always_save_cheat_toggles = u8!0x0	不保存状态
+   enable_dns_mitm = u8!0x1	启用DNS屏蔽
+   add_defaults_to_dns_hosts = u8!0x1	添加默认配置到host文件
+-/atmosphere/hosts/
+   default.txt	默认生成配置
+   emummc.txt	虚拟系统host
+   sysmmc.txt   真实破解host（默认无此文件）
+-/config/
+   tesla/config.ini	特斯拉热键L+DDOWN+PLUS（L+十字键下+加号）
+   TeslaMenu/sort.cfg	中文特斯拉排序文件
 ---
-
 # 说明
 ## [setting.json](https://github.com/qhq/DeepSea/blob/custom/src/settings.json)
 ```
