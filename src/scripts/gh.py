@@ -16,9 +16,10 @@ class GH():
         except:
             print("无法获取: ", moduleJson["repo"])
             return
-        for i in ghRepo.get_releases():
-            ghReleases = i.raw_data
-            print(ghReleases)
+
+        ghReleases = ghRepo.get_releases()[0]
+        for i in ghReleases.assets():
+            print(i)
         ghLatestTag = ghRepo.get_tags()[0]
         # print( "last tag: " + ghLatestTag.name) # v1.0
         # print( "time: " + ghLatestTag.last_modified) # Fri, 23 Oct 2020 04:21:50 GMT
