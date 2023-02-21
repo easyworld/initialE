@@ -10,7 +10,7 @@
             ]
         },
         "qhq":{
-            "active": false,
+            "active": true,
             "modules": [
                 "atmosphere", "hekate", "sigpatches",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
