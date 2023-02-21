@@ -23,20 +23,13 @@ class GH():
             print("无法获取: ", moduleJson["repo"])
             return
 
-        # ghReleases = ghRepo.get_releases()[0]
-        # print(ghReleases.assets[0].name)
-        
         ghLatestTag = ghRepo.get_tags()[0]
         # print( "last tag: " + ghLatestTag.name) # v1.0
         # print( "time: " + ghLatestTag.last_modified) # Fri, 23 Oct 2020 04:21:50 GMT
         # print( "raw: " + ghLatestTag.raw_data)
-        commit = ghLatestTag.commit # Commit(sha="7e700a25a6cb378d5c04d7cb3d616c14546d1c6b")
-        timestamp =  commit.stats.last_modified # # Fri, 23 Oct 2020 04:21:50 GMT
-       
-        # GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
-        # local_time = datetime.datetime.strptime(timestamp, GMT_FORMAT) + datetime.timedelta(hours=8)
-        # now = local_time.strftime("%Y-%m-%d %H:%M:%S")
-        now = self.formatGMTime(timestamp)
+        # commit = ghLatestTag.commit # Commit(sha="7e700a25a6cb378d5c04d7cb3d616c14546d1c6b")
+        # timestamp =  commit.stats.last_modified # # Fri, 23 Oct 2020 04:21:50 GMT
+        # now = self.formatGMTime(timestamp)
         # print("last modified: " + now)
         
         # info = {"tag":ghLatestTag.name,"last_modified":now,"url": ghLatestTag.zipball_url}
