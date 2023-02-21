@@ -36,7 +36,7 @@ class GH():
         # GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
         # local_time = datetime.datetime.strptime(timestamp, GMT_FORMAT) + datetime.timedelta(hours=8)
         # now = local_time.strftime("%Y-%m-%d %H:%M:%S")
-        now = formatTime(timestamp)
+        now = self.formatTime(timestamp)
         # print("last modified: " + now)
         
         # info = {"tag":ghLatestTag.name,"last_modified":now,"url": ghLatestTag.zipball_url}
@@ -56,7 +56,7 @@ class GH():
                 if re.search(pattern, asset.name):
                     matched_asset = asset
                     url = asset.browser_download_url
-                    info = {"tag":ghLatestTag.name,"last_modified":formatTime(updated_at),"url": url}
+                    info = {"tag":ghLatestTag.name,"last_modified":self.formatTime(updated_at),"url": url}
                     print(info)
                     break
             if matched_asset is None:
