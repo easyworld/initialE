@@ -13,11 +13,11 @@ class GH():
     def downloadLatestRelease(self, moduleJson, downloadPath):
         try:
             ghRepo = self.github.get_repo(moduleJson["repo"])
-            ghReleases = self.github.get_releases(moduleJson["repo"])
         except:
             print("无法获取: ", moduleJson["repo"])
             return
         
+        ghReleases = ghRepo.get_releases(0)
         print(ghReleases)
         ghLatestTag = ghRepo.get_tags()[0]
         # print( "last tag: " + ghLatestTag.name) # v1.0
