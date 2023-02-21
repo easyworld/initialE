@@ -18,6 +18,7 @@ class GH():
             return
 
         ghReleases = ghRepo.get_releases()[0]
+        print("aaa" + ghReleases)
         for i in ghReleases.assets():
             print(i)
         ghLatestTag = ghRepo.get_tags()[0]
