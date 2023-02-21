@@ -56,7 +56,7 @@ class GH():
                 if re.search(pattern, asset.name):
                     matched_asset = asset
                     url = asset.browser_download_url
-                    info = {"tag":ghLatestTag.name,"last_modified":asset.updated_at,"url": url}
+                    info = {"tag":ghLatestTag.name,"last_modified":asset.updated_at.strftime("%Y-%m-%d %H:%M:%S"),"url": url}
                     print(info)
                     break
             if matched_asset is None:
