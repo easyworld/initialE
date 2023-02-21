@@ -56,7 +56,9 @@ class GH():
                 if re.search(pattern, asset.name):
                     matched_asset = asset
                     url = asset.browser_download_url
-                    utc = datetime.datetime.strptime(asset.updated_at, '%Y-%m-%dT%H:%M:%SZ')
+                    print(asset.updated_at)
+                    print(asset.updated_at.strftime('%Y-%m-%d %H:%M:%S'))
+                    utc = datetime.strptime(asset.updated_at, '%Y-%m-%dT%H:%M:%SZ')
                     updated_time = (utc + timedelta(hours=8)).replace(microsecond=0)
                     info = {"tag":ghLatestTag.name,"last_modified":updated_time,"url": url}
                     print(info)
