@@ -19,7 +19,7 @@ class GH():
 
         for i in ghRepo.get_releases():
             # ghReleases = i.node_id
-            print(i)
+            print(i.raw_data)
             # print("aaa" + ghReleases)
         ghLatestTag = ghRepo.get_tags()[0]
         # print( "last tag: " + ghLatestTag.name) # v1.0
