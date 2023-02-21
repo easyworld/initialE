@@ -15,18 +15,6 @@ class GH():
         local_time = datetime.datetime.strptime(timestamp, GMT_FORMAT) + datetime.timedelta(hours=8)
         now = local_time.strftime("%Y-%m-%d %H:%M:%S")
         return now
-    
-    def TimestampIso8601_to_BeijingTime(self, timestamp_iso8601):
-        """
-        将iso861timestamp转换为北京时间
-        :return:
-        """
-        if "." not in timestamp_iso8601:    # 当毫秒为0
-            utc = datetime.strptime(timestamp_iso8601, '%Y-%m-%dT%H:%M:%SZ')
-        else:
-            utc = datetime.strptime(timestamp_iso8601, '%Y-%m-%dT%H:%M:%S.%fZ')
-        now_time = (utc + timedelta(hours=8)).replace(microsecond=0)
-        return now_time
 
     def downloadLatestRelease(self, moduleJson, downloadPath):
         try:
@@ -68,7 +56,7 @@ class GH():
                 if re.search(pattern, asset.name):
                     matched_asset = asset
                     url = asset.browser_download_url
-                    utc = datetime.strptime(asset.updated_at, '%Y-%m-%dT%H:%M:%SZ')
+                    utc = datetime.datetime.strptime(asset.updated_at, '%Y-%m-%dT%H:%M:%SZ')
                     updated_time = (utc + timedelta(hours=8)).replace(microsecond=0)
                     info = {"tag":ghLatestTag.name,"last_modified":updated_time,"url": url}
                     print(info)
