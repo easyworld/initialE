@@ -16,7 +16,7 @@ class GH():
         except:
             print("无法获取: ", moduleJson["repo"])
             return
-        for i in repo.get_releases():
+        for i in ghRepo.get_releases():
             ghReleases = i.raw_data
             print(ghReleases)
         ghLatestTag = ghRepo.get_tags()[0]
