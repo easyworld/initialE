@@ -10,7 +10,7 @@ class GH():
         self.token = ghToken
         self.github = Github(self.token)
         
-    def formatTime(timestamp):
+    def formatTime(self, timestamp):
         GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
         local_time = datetime.datetime.strptime(timestamp, GMT_FORMAT) + datetime.timedelta(hours=8)
         now = local_time.strftime("%Y-%m-%d %H:%M:%S")
