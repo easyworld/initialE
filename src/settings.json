@@ -2,7 +2,7 @@
     "version": "9.9.9",
     "packages":{
         "clean":{
-            "active": true,
+            "active": false,
             "modules": [
                 "atmosphere", "hekate", "sigpatches",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
@@ -10,12 +10,18 @@
             ]
         },
         "qhq":{
-            "active": true,
+            "active": false,
             "modules": [
                 "atmosphere", "hekate", "sigpatches",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
                 "nyx", "emuiibo", "edizon", "dbi",
                 "nx-ovlloader", "ovl-sysmodules", "Status-Monitor-Overlay"
+            ]
+        },
+        "test":{
+            "active": true,
+            "modules": [
+                "edizon", "dbi"
             ]
         }
     }
