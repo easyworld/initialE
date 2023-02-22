@@ -52,12 +52,12 @@ class GH():
                     matched_asset = asset
                     url = asset.browser_download_url
                     version = None
-                    pattern = re.compile(rf'{matched_asset.split(".")[0]}\|(.*?)\|')
+                    pattern = re.compile(rf'{matched_asset.name.split(".")[0]}\|(.*?)\|')
                     version = re.search(pattern, ghBody).group(1)
                     print(version)
                     if version is None:
                         version = ghLatestTag.name
-                    info = {"tag":version,"last_modified":asset.updated_at.strftime("%Y-%m-%d %H:%M:%S"),"url": url}
+                    info = {"tag":version,"last_modified":matched_asset.updated_at.strftime("%Y-%m-%d %H:%M:%S"),"url": url}
                     print(info)
                     break
             if matched_asset is None:
