@@ -1,0 +1,15 @@
+{
+    "repo":"mtheall/ftpd",
+    "assetRegex":["ftpd.nro"],
+    "customSteps":[
+        {
+            "action": "createDir",
+            "source": "switch/ftpd"
+        },
+        {
+            "action": "move",
+            "source": "ftpd.nro",
+            "destination": "switch/ftpd/ftpd.nro"
+        }
+    ]
+}
