@@ -56,10 +56,12 @@ class GH():
                     updated_at_utc8_str = updated_at_utc8.strftime("%Y-%m-%d %H:%M:%S")
                     version = None
                     pattern = re.compile(rf'{matched_asset.name.split(".")[0]}\|(.*?)\|')
-                    version = re.search(pattern, ghBody).group(1)
-                    print(version)
-                    if version is None:
+                    match = re.search(pattern, ghBody)
+                    if match:
+                        version = match.group(1)
+                    else:
                         version = ghLatestTag.name
+                    # print(version)
                     info = {"tag":version,"last_modified":updated_at_utc8_str,"url": url}
                     print(info)
                     break
