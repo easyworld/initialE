@@ -43,6 +43,8 @@ class GH():
 
         downloadedFiles = []
 
+        print(ghLatestRelease.body)
+        
         for pattern in moduleJson["assetRegex"]:
             matched_asset = None
             for asset in ghLatestRelease.get_assets():
