@@ -16,7 +16,7 @@
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
                 "nyx", "emuiibo", "edizon", "dbi",
                 "nx-ovlloader", "ovl-sysmodules", "Status-Monitor-Overlay",
-                "jksv"
+                "jksv", "ftpd"
             ]
         },
         "test":{
