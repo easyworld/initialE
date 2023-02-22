@@ -51,13 +51,16 @@ class GH():
                 if re.search(pattern, asset.name):
                     matched_asset = asset
                     url = asset.browser_download_url
+                    updated_at = matched_asset.updated_at
+                    updated_at_utc8 = updated_at + datetime.timedelta(hours=8)
+                    updated_at_utc8_str = updated_at_utc8.strftime("%Y-%m-%d %H:%M:%S")
                     version = None
                     pattern = re.compile(rf'{matched_asset.name.split(".")[0]}\|(.*?)\|')
                     version = re.search(pattern, ghBody).group(1)
                     print(version)
                     if version is None:
                         version = ghLatestTag.name
-                    info = {"tag":version,"last_modified":matched_asset.updated_at.strftime("%Y-%m-%d %H:%M:%S"),"url": url}
+                    info = {"tag":version,"last_modified":updated_at_utc8_str,"url": url}
                     print(info)
                     break
             if matched_asset is None:
