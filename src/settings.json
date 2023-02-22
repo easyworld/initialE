@@ -2,7 +2,7 @@
     "version": "9.9.9",
     "packages":{
         "clean":{
-            "active": false,
+            "active": true,
             "modules": [
                 "atmosphere", "hekate", "sigpatches",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
@@ -10,7 +10,7 @@
             ]
         },
         "qhq":{
-            "active": false,
+            "active": true,
             "modules": [
                 "atmosphere", "hekate", "sigpatches",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
@@ -20,7 +20,7 @@
             ]
         },
         "test":{
-            "active": true,
+            "active": false,
             "modules": [
                 "edizon", "dbi"
             ]
