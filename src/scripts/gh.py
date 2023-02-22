@@ -43,15 +43,21 @@ class GH():
 
         downloadedFiles = []
 
-        print(ghLatestRelease.body)
-        
+        ghBody = ghLatestRelease.body
+
         for pattern in moduleJson["assetRegex"]:
             matched_asset = None
             for asset in ghLatestRelease.get_assets():
                 if re.search(pattern, asset.name):
                     matched_asset = asset
                     url = asset.browser_download_url
-                    info = {"tag":ghLatestTag.name,"last_modified":asset.updated_at.strftime("%Y-%m-%d %H:%M:%S"),"url": url}
+                    version = None
+                    pattern = re.compile(rf'{matched_asset.split(".")[0]}\|(.*?)\|')
+                    version = re.search(pattern, ghBody).group(1)
+                    print(version)
+                    if version is None:
+                        version = ghLatestTag.name
+                    info = {"tag":version,"last_modified":asset.updated_at.strftime("%Y-%m-%d %H:%M:%S"),"url": url}
                     print(info)
                     break
             if matched_asset is None:
