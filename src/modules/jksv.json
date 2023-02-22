@@ -1,15 +1,11 @@
 {
-    "repo":"J-D-K/JKSV",
+    "bak":"J-D-K/JKSV",
+    "repo":"qhq/SwitchApp",
     "assetRegex":[".*\\.nro"],
     "customSteps":[
         {
-            "action": "createDir",
-            "source": "switch/JKSV"
-        },
-        {
-            "action": "move",
-            "source": "JKSV.nro",
-            "destination": "switch/JKSV/JKSV.nro"
+            "action": "extract",
+            "source": ".*JKSV.*\\.zip"
         }
     ]
 }
