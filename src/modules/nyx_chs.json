@@ -1,10 +1,10 @@
 {
     "repo":"qhq/SwitchApp",
-    "assetRegex":["nyx.zip"],
+    "assetRegex":[".*nyx.*\\.zip"],
     "customSteps":[
         {
             "action": "extract",
-            "source": "nyx.zip"
+            "source": ".*nyx.*\\.zip"
         }
     ]
 }
