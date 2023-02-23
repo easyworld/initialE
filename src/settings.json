@@ -6,7 +6,7 @@
             "modules": [
                 "atmosphere", "hekate", "sigpatches",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
-                "nyx"
+                "nyx_chs"
             ]
         },
         "qhq":{
@@ -14,7 +14,7 @@
             "modules": [
                 "atmosphere", "hekate", "sigpatches",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
-                "nyx", "emuiibo", "edizon", "dbi",
+                "nyx_chs", "emuiibo", "edizon", "dbi",
                 "nx-ovlloader", "ovl-sysmodules", "Status-Monitor-Overlay",
                 "jksv", "ftpd"
             ]
