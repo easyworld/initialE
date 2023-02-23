@@ -1,7 +1,7 @@
 {
     "bak":"J-D-K/JKSV",
     "repo":"qhq/SwitchApp",
-    "assetRegex":[".*\\.nro"],
+    "assetRegex":["JKSV.zip"],
     "customSteps":[
         {
             "action": "extract",
