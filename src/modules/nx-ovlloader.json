@@ -1,7 +1,7 @@
 {
     "bak":"WerWolv/nx-ovlloader",
     "repo":"qhq/SwitchApp",
-    "assetRegex":[".*nx-ovlloader.*\\.zip","Tesla-Menu.zip"],
+    "assetRegex":[".*nx-ovlloader.*\\.zip"],
     "customSteps":[
         {
             "action": "extract",
@@ -10,10 +10,6 @@
         {
             "action": "createDir",
             "source": "atmosphere/contents/420000000007E51A_tesla"
-        },
-        {
-            "action": "extract",
-            "source": "Tesla-Menu.zip"
         }
     ]
 }
