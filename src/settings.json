@@ -15,7 +15,7 @@
                 "atmosphere", "hekate", "sigpatches",
                 "TegraExplorer", "NX-Shell", "Lockpick_RCM",
                 "nyx_chs", "emuiibo", "edizon", "dbi",
-                "nx-ovlloader", "ovl-sysmodules", "Status-Monitor-Overlay",
+                "nx-ovlloader", "Tesla-Menu", "ovl-sysmodules", "Status-Monitor-Overlay",
                 "jksv", "ftpd"
             ]
         },
