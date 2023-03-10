@@ -1,11 +1,11 @@
 {
     "bak":"masagrator/Status-Monitor-Overlay",
     "repo":"qhq/SwitchApp",
-    "assetRegex":[".*Status-Monitor.*\\.zip"],
+    "assetRegex":[".*StatusMonitor.*\\.zip"],
     "customSteps":[
         {
             "action": "extract",
-            "source": ".*Status-Monitor.*\\.zip"
+            "source": ".*StatusMonitor.*\\.zip"
         }
     ]
 }
