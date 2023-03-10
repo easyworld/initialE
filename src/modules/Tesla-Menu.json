@@ -1,10 +1,11 @@
 {
-    "repo":"WerWolv/Tesla-Menu",
-    "assetRegex":[".*ovlmenu.*\\.zip"],
+    "bak":"WerWolv/Tesla-Menu",
+    "repo":"qhq/SwitchApp",
+    "assetRegex":[".*Tesla-Menu.*\\.zip"],
     "customSteps":[
         {
             "action": "extract",
-            "source": ".*ovlmenu.*\\.zip"
+            "source": ".*Tesla-Menu.*\\.zip"
         }
     ]
 }
