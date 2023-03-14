@@ -5,10 +5,6 @@
         {
             "action": "extract",
             "source": "sys-botbase.zip"
-        },
-        {
-            "action": "delete",
-            "source": "atmosphere/contents/430000000000000B/flags/boot2.flag"
         }
     ]
 }

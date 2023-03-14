@@ -1,28 +1,16 @@
 {
-    "version": "9.9.9",
+    "version": "2023.3.14",
     "packages":{
         "clean":{
             "active": true,
             "modules": [
-                "atmosphere", "hekate", "sigpatches",
-                "TegraExplorer", "NX-Shell", "Lockpick_RCM",
-                "nyx_chs"
-            ]
-        },
-        "qhq":{
-            "active": true,
-            "modules": [
-                "atmosphere", "hekate", "sigpatches",
-                "TegraExplorer", "NX-Shell", "Lockpick_RCM",
-                "nyx_chs", "emuiibo", "edizon", "dbi",
-                "nx-ovlloader", "Tesla-Menu", "ovl-sysmodules", "Status-Monitor-Overlay",
-                "jksv", "ftpd"
+                "atmosphere", "hekate", "sys-botbase"
             ]
         },
         "test":{
             "active": false,
             "modules": [
-                "edizon", "dbi"
+                "dbi"
             ]
         }
     }

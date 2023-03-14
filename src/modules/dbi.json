@@ -1,11 +1,11 @@
 {
-    "bak":"rashevskyv/dbi",
-    "repo":"qhq/SwitchApp",
-    "assetRegex":["DBI.zip"],
+    "repo":"rashevskyv/dbi",
+    "assetRegex":["DBI.nro"],
     "customSteps":[
         {
-            "action": "extract",
-            "source": ".*DBI.*\\.zip"
+            "action": "move",
+            "source": "DBI.nro",
+            "destination": "switch/DBI.nro"
         }
     ]
 }

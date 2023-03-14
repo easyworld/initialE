@@ -1,5 +1,5 @@
 {
-    "repo":"CTCaer/hekate",
+    "repo":"easyworld/hekate",
     "assetRegex":[".*hekate.*\\.zip"],
     "customSteps":[
         {
@@ -32,11 +32,6 @@
             "action": "delete",
             "source": "",
             "fileRegex": "hekate_ctcaer_.*\\.bin"
-        },
-        {
-            "action": "copy",
-            "source": "bootloader/sys/nyx.bin",
-            "destination": "bootloader/sys/nyx.en.bin"
         }
     ]
 }
