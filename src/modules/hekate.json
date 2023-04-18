@@ -1,6 +1,6 @@
 {
     "repo":"easyworld/hekate",
-    "assetRegex":[".*hekate.*\\.zip"],
+    "assetRegex":[".*hekate.*sc\\.zip"],
     "customSteps":[
         {
             "action": "extract",
