@@ -4,7 +4,7 @@
         "clean":{
             "active": true,
             "modules": [
-                "atmosphere", "hekate", "sys-botbase"
+                "atmosphere", "hekate", "sigpatches", "sys-botbase"
             ]
         },
         "test":{
