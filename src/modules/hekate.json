@@ -26,7 +26,7 @@
             "action": "copy",
             "source": "",
             "fileRegex": ".*hekate.*\\.bin",
-            "destination": "hekate_ctcaer.bin"
+            "destination": "payload.bin"
         },
         {
             "action": "delete",
