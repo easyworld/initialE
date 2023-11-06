@@ -1,7 +1,6 @@
 import src.scripts.gh as GH, src.scripts.fs as FS, src.scripts.dl as DL
 import argparse, json, os, importlib, shutil
 from pathlib import Path
-from distutils.dir_util import copy_tree
 
 # 递归实现多重for循环的函数
 def fn(_dict, depth):
