@@ -60,6 +60,18 @@ class FS():
                     if os.path.exists(dfile):
                         os.remove(dfile)
                         
+    def copy_tree(src, dst):
+        try:
+            shutil.copytree(src, dst)
+        except FileExistsError:
+            for file in os.listdir(src):
+                s = os.path.join(src, file)
+                d = os.path.join(dst, file)
+                if os.path.isdir(s):
+                    copy_tree(s, d)
+                else:
+                    shutil.copy2(s, d)
+
     def copy(self, modulename, source, dest, regex=False):
 
         if regex == False:
