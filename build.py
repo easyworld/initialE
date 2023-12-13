@@ -1,6 +1,7 @@
 import src.scripts.gh as GH, src.scripts.fs as FS, src.scripts.dl as DL
 import argparse, json, os, importlib, shutil
 from pathlib import Path
+from datetime import datetime
 
 # 递归实现多重for循环的函数
 def fn(_dict, depth):
@@ -108,6 +109,7 @@ if __name__ == '__main__':
             shutil.copytree(str(Path(Path.joinpath(Path.cwd(), "assets"))), str(Path(Path.joinpath(fs.workdir, "switch_out"))), dirs_exist_ok=True)
             # fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "boot.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","boot.ini"))))
             # fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "exosphere.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","exosphere.ini"))))
+            version = settings["version"] if settings.get("version") is not None else datetime.now().strftime('%Y.%m.%d')
             print("Zipping package: " + "atmosphere-"+packageName+"_v"+settings["version"])
             shutil.make_archive("atmosphere-"+packageName+"_v"+settings["version"],'zip',outPath)
             fs.delete("",outPath)
