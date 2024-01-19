@@ -1,10 +1,10 @@
 {
-    "version": "2023.11.06",
+    "version": "2024.01.19",
     "packages":{
         "clean":{
             "active": true,
             "modules": [
-                "atmosphere", "hekate", "sys-botbase"
+                "atmosphere", "hekate", "sigpatches", "sys-botbase"
             ]
         },
         "test":{

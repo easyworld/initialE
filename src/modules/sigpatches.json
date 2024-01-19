@@ -1,10 +1,10 @@
 {
-    "url":["https://jits.cc/patches"],
-    "file":"SigPatches.zip",
+    "url":["https://sigmapatches.su/sigpatches.zip"],
+    "file":"sigpatches.zip",
     "customSteps":[
         {
             "action": "extract",
-            "source": ".*[hekate|SigPatches].*\\.zip"
+            "source": ".*[hekate|sigpatches].*\\.zip"
         }
     ]
 }
