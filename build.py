@@ -110,8 +110,8 @@ if __name__ == '__main__':
             # fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "boot.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","boot.ini"))))
             # fs.copy("", str(Path.joinpath(Path.cwd(), "assets", "exosphere.ini")), str(Path(Path.joinpath(fs.workdir, "switch_out","exosphere.ini"))))
             version = settings["version"] if settings.get("version") is not None else datetime.now().strftime('%Y.%m.%d')
-            print("Zipping package: " + "atmosphere-"+packageName+"_v"+settings["version"])
-            shutil.make_archive("atmosphere-"+packageName+"_v"+settings["version"],'zip',outPath)
+            print("Zipping package: " + "atmosphere-" + packageName + "_v" + version)
+            shutil.make_archive("atmosphere-" + packageName + "_v" + version, 'zip', outPath)
             fs.delete("",outPath)
 
         else:
