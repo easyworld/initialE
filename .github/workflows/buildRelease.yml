@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: 当前日期
       id: date
@@ -34,7 +34,7 @@ jobs:
         echo "version=$version" >> $GITHUB_OUTPUT
 
     - name: 安装 Python
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v5
       with:
         python-version: '3.x'
         architecture: 'x64'
